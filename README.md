@@ -3,7 +3,7 @@
 Bienvenue sur le dépôt Backend du projet **OnlyDBFan**.
 Ce projet est une API de réseau social construite avec une architecture de microservices simulée via Docker, utilisant la polyglotte persistence (MongoDB, Cassandra, Redis).
 
-## 🛠 Stack Technique
+## 🛠 Stack Technique ( A Check peut changer)
 
 * **Runtime :** Node.js (v20)
 * **Framework :** Express.js
@@ -25,7 +25,7 @@ Pré-requis : Avoir **Docker** et **Docker Compose** installés.
     ```
 
 2.  **Configuration :**
-    Copier le fichier d'exemple d'environnement (créez-le si absent).
+    Copier le fichier d'exemple d'environnement.
     ```bash
     cp .env.example .env
     ```
