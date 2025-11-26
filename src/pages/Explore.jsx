@@ -2,70 +2,23 @@ import React from 'react';
 
 export default function Explore() {
     return (
-        <div className="font-display bg-transparent text-gray-100 h-screen min-h-[700px] w-full flex flex-col overflow-hidden relative">
+        <div className="font-display bg-transparent text-gray-100 h-screen w-full flex flex-col overflow-hidden relative">
             <div className="flex h-full w-full">
-                {/* SideNavBar */}
-                <aside
-                    className="flex w-64 flex-col gap-8 border-r border-white/10 p-4 fixed h-[calc(100vh-72px)] top-[72px] bg-[#050816]">
-                    <div className="flex items-center gap-2 px-3 text-2xl font-bold text-primary">
-                        <span className="material-symbols-outlined text-3xl">flare</span>
-                        <span>Aura</span>
-                    </div>
-                    <div className="flex h-full flex-col justify-between">
-                        <div className="flex flex-col gap-2">
-                            <a className="flex items-center gap-4 rounded-full px-4 py-2.5 text-black/80 dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                                href="/">
-                                <span className="material-symbols-outlined">home</span>
-                                <p className="text-base font-medium leading-normal">Home</p>
-                            </a>
-                            <a className="flex items-center gap-4 rounded-full px-4 py-2.5 text-black/80 dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                                href="#">
-                                <span className="material-symbols-outlined">search</span>
-                                <p className="text-base font-medium leading-normal">Search</p>
-                            </a>
-                            <a className="flex items-center gap-4 rounded-full px-4 py-2.5 text-white bg-gradient-to-br from-pink-400 to-orange-300 shadow-md"
-                                href="#">
-                                <span className="material-symbols-outlined fill" style={{ fontVariationSettings: "'FILL' 1" }}>explore</span>
-                                <p className="text-base font-bold leading-normal">Explore</p>
-                            </a>
-                            <a className="flex items-center gap-4 rounded-full px-4 py-2.5 text-black/80 dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                                href="/messages">
-                                <span className="material-symbols-outlined">chat_bubble</span>
-                                <p className="text-base font-medium leading-normal">Messages</p>
-                            </a>
-                            <a className="flex items-center gap-4 rounded-full px-4 py-2.5 text-black/80 dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                                href="/profile">
-                                <span className="material-symbols-outlined">account_circle</span>
-                                <p className="text-base font-medium leading-normal">Profile</p>
-                            </a>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                                data-alt="User avatar of Sofia Chen"
-                                style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZkwNiRr_iqCmaOwqnbN7hPCzYh6Z4dlpe1XTS0TZkJlkFhYIjNNOxWnAbpSI709DieQ-UmcA2YNnmQvwXYZC2FqIk80g-AbQSk1eImNMINiLXke1AagDJfXoX3vjgcPLQybwWReohi7inqZHvFVZ37tthDe-NCJ8fpprRQNwhxSxJxPB2j6eWvsswKITTx23Jwm-lcbCymFr2tXZY65rdRd_nxeilXy7azJ29aLCExr9TT5MvAmV5CprjrQBCxyAk0qBOm_JfuAYg")' }}>
-                            </div>
-                            <div className="flex flex-col">
-                                <h1 className="text-[#1c0d11] dark:text-white/90 text-base font-medium leading-normal">Sofia Chen</h1>
-                                <p className="text-[#9c4962] dark:text-white/60 text-sm font-normal leading-normal">@sofiachen</p>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-                <div className="flex flex-1 pl-64">
+                <div className="flex flex-1">
                     {/* Main Content */}
                     <main className="flex-1 overflow-y-auto">
                         <div className="mx-auto max-w-4xl px-8 py-6">
                             {/* Top Bar with Search */}
                             <header className="flex h-12 items-center justify-between pb-6">
-                                <h2 className="text-[#1c0d11] dark:text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explore
+                                <h2 className="text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explore
                                 </h2>
                                 <div className="flex items-center gap-4">
                                     <button
-                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90">
+                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90 hover:bg-white/10 transition-colors">
                                         <span className="material-symbols-outlined text-xl">notifications</span>
                                     </button>
                                     <button
-                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90">
+                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90 hover:bg-white/10 transition-colors">
                                         <span className="material-symbols-outlined text-xl">dark_mode</span>
                                     </button>
                                 </div>
