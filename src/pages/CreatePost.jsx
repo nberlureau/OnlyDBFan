@@ -7,8 +7,8 @@ export default function CreatePost() {
             <main className="flex-1 flex items-center justify-center p-6">
                 <div className="w-full max-w-2xl bg-white/5 rounded-2xl shadow-xl border border-white/5 overflow-hidden">
                     <div className="p-6 border-b border-white/10 flex justify-between items-center">
-                        <h2 className="text-xl font-bold text-white/90">Create New Post</h2>
-                        <button className="text-primary font-bold hover:text-primary/80 transition-colors">Drafts</button>
+                        <h2 className="text-xl font-bold text-white/90">Créer une publication</h2>
+                        <button className="text-primary font-bold hover:text-primary/80 transition-colors">Brouillons</button>
                     </div>
 
                     <div className="p-6 flex gap-4">
@@ -16,13 +16,13 @@ export default function CreatePost() {
                             style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZkwNiRr_iqCmaOwqnbN7hPCzYh6Z4dlpe1XTS0TZkJlkFhYIjNNOxWnAbpSI709DieQ-UmcA2YNnmQvwXYZC2FqIk80g-AbQSk1eImNMINiLXke1AagDJfXoX3vjgcPLQybwWReohi7inqZHvFVZ37tthDe-NCJ8fpprRQNwhxSxJxPB2j6eWvsswKITTx23Jwm-lcbCymFr2tXZY65rdRd_nxeilXy7azJ29aLCExr9TT5MvAmV5CprjrQBCxyAk0qBOm_JfuAYg")' }}>
                         </div>
                         <div className="flex-1">
-                            <textarea className="w-full min-h-[150px] bg-transparent border-none resize-none text-lg placeholder:text-white/40 focus:ring-0 text-white/90" placeholder="What's on your mind, Sofia?"></textarea>
+                            <textarea className="w-full min-h-[150px] bg-transparent border-none resize-none text-lg placeholder:text-white/40 focus:ring-0 text-white/90" placeholder="Quoi de neuf, Sofia ?"></textarea>
 
                             {/* Image Preview Area (Empty state) */}
                             <div className="mt-4 border-2 border-dashed border-white/10 rounded-xl p-8 flex flex-col items-center justify-center text-white/40 hover:bg-white/5 transition-colors cursor-pointer">
                                 <span className="material-symbols-outlined text-4xl mb-2">add_photo_alternate</span>
-                                <p className="font-medium">Add Photos/Videos</p>
-                                <p className="text-xs">or drag and drop</p>
+                                <p className="font-medium">Ajouter Photos/Vidéos</p>
+                                <p className="text-xs">ou glisser-déposer</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ export default function CreatePost() {
                                     <span className="material-symbols-outlined text-lg">expand_more</span>
                                 </button>
                             </div>
-                            <button className="px-6 py-2 bg-primary text-white rounded-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Post</button>
+                            <button className="px-6 py-2 bg-primary text-white rounded-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Publier</button>
                         </div>
                     </div>
                 </div>
