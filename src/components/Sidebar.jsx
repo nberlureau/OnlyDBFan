@@ -1,40 +1,52 @@
-import { Home, Search, PlusSquare, Bell, User, Settings, LogOut } from 'lucide-react';
+import { Home, Search, PlusSquare, Bell, User, Settings, LogOut, MessageCircle } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import logoSombre from '../assets/logo_sombre.png';
 
 export default function Sidebar() {
   const menuItems = [
-    { icon: Home, label: "Accueil" },
-    { icon: Search, label: "Recherche" },
-    { icon: Bell, label: "Notifications" }, // [cite: 20]
-    { icon: PlusSquare, label: "Créer un post" }, // [cite: 18]
-    { icon: User, label: "Profil" },
-    { icon: Settings, label: "Paramètres" }, // [cite: 24]
+    { icon: Home, label: "Home", path: "/" },
+    { icon: Search, label: "Explore", path: "/explore" },
+    { icon: MessageCircle, label: "Messages", path: "/messages" },
+    { icon: Bell, label: "Notifications", path: "/notifications" },
+    { icon: PlusSquare, label: "Create Post", path: "/create-post" },
+    { icon: User, label: "Profile", path: "/profile" },
+    { icon: Settings, label: "Settings", path: "/settings" },
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-100 p-6 flex flex-col justify-between">
+    <div className="fixed left-0 top-0 h-screen w-64 bg-[#050816] border-r border-white/10 p-6 flex flex-col justify-between z-50">
       {/* Logo & Titre */}
       <div>
-        <h1 className="text-3xl font-bold text-pastel-primary mb-10 pl-2">OnlyDBFan</h1>
-        
+        <div className="flex items-center gap-3 mb-10 pl-2">
+          <img src={logoSombre} alt="OnlyDBFan Logo" className="h-10 w-auto" />
+          <h1 className="text-xl font-bold text-white hidden lg:block">OnlyDBFan</h1>
+        </div>
+
         {/* Menu de navigation */}
         <nav className="space-y-2">
           {menuItems.map((item, index) => (
-            <button 
+            <NavLink
               key={index}
-              className="flex items-center space-x-4 w-full p-3 rounded-xl hover:bg-pastel-bg hover:text-pastel-primary transition-colors text-gray-600"
+              to={item.path}
+              className={({ isActive }) =>
+                `flex items-center space-x-4 w-full p-3 rounded-xl transition-colors ${isActive
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                }`
+              }
             >
-              <item.icon size={26} />
-              <span className="text-lg font-medium">{item.label}</span>
-            </button>
+              <item.icon size={24} />
+              <span className="text-base font-medium">{item.label}</span>
+            </NavLink>
           ))}
         </nav>
       </div>
 
-      {/* Bas de page sidebar : Déconnexion ou infos utilisateur */}
-      <button className="flex items-center space-x-4 p-3 text-gray-400 hover:text-red-400 transition">
+      {/* Bas de page sidebar : Déconnexion */}
+      <NavLink to="/login" className="flex items-center space-x-4 p-3 text-gray-400 hover:text-red-400 transition hover:bg-white/5 rounded-xl">
         <LogOut size={24} />
-        <span>Déconnexion</span>
-      </button>
+        <span className="text-base font-medium">Log Out</span>
+      </NavLink>
     </div>
   );
 }

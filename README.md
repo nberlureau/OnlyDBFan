@@ -1,74 +1,71 @@
-# OnlyDBFan 🎨
+# OnlyDBFan �
 
-Une application de réseau social moderne, développée en React, qui met l'accent sur une interface intuitive, des couleurs pastel apaisantes et des interactions fluides.
+Une application de réseau social moderne et élégante, refondue avec un thème sombre unifié et une architecture React robuste.
 
-Ce projet a été initialisé avec **Vite** pour des performances optimales.
+## 🎨 Nouveau Design & Thème
 
-## 📋 Fonctionnalités
+Le projet a évolué vers une esthétique "Premium Dark" pour une expérience utilisateur immersive et cohérente.
 
-Le projet respecte un cahier des charges précis orienté UX/UI :
+*   **Thème Global** : Fond sombre profond (`#050816`) unifié sur toutes les pages.
+*   **Typographie** : Texte clair (`gray-100`) pour une lisibilité optimale.
+*   **Navigation** : Barre de navigation supérieure fixe avec effet de flou (glassmorphism) et logo intégré.
+*   **Composants** : Cartes et conteneurs avec des fonds transparents ou semi-transparents (`white/5`) pour s'intégrer harmonieusement.
 
-* **Design Pastel** : Une palette douce (Menthe, Lilas, Crème) pour un confort visuel maximal.
-* **Interface Web (3 colonnes)** :
-    * **Sidebar Gauche** : Navigation intuitive (Accueil, Recherche, Profil...).
-    * **Feed Central** : Flux d'actualité centré avec focus sur le contenu visuel.
-    * **Sidebar Droite** : Suggestions d'amis et mises en avant.
-* **Micro-Interactions** :
-    * Animation "Heart Beat" au double-clic sur une image.
-    * Changement d'état visuel (couleurs) pour les Likes et Favoris.
-    * Effets de survol fluides sur la navigation.
+## � Fonctionnalités & Pages
+
+L'application est structurée autour de plusieurs pages clés, toutes accessibles via une navigation fluide :
+
+*   **🏠 Home** : Fil d'actualité principal avec publications, stories et suggestions.
+*   **compass Explore** : Page de découverte avec tendances et créateurs suggérés.
+*   **💬 Messages** : Interface de messagerie instantanée avec liste de conversations et zone de chat.
+*   **👤 Profile** : Page de profil utilisateur détaillée avec grille de médias et statistiques.
+*   **➕ Create Post** : Interface dédiée à la création de nouveau contenu.
+*   **🔔 Notifications** : Centre de notifications avec filtrage (Aujourd'hui, Hier).
+*   **⚙️ Settings** : Panneau de configuration complet (Compte, Préférences, Sécurité).
+*   **🔐 Login** : Page d'authentification stylisée.
 
 ## 🛠️ Stack Technique
 
-* [React](https://react.dev/) - Bibliothèque JavaScript pour l'interface utilisateur.
-* [Vite](https://vitejs.dev/) - Environnement de développement rapide.
-* [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitaire pour le styling rapide.
-* [Lucide React](https://lucide.dev/) - Bibliothèque d'icônes légère et cohérente.
+*   **[React](https://react.dev/)** : Bibliothèque UI principale.
+*   **[Vite](https://vitejs.dev/)** : Build tool ultra-rapide.
+*   **[Tailwind CSS](https://tailwindcss.com/)** : Styling utilitaire pour le thème sombre personnalisé.
+*   **[React Router](https://reactrouter.com/)** : Gestion du routage côté client (SPA).
 
-## 🚀 Guide d'Installation
+## � Structure du Projet
 
-Suivez ces étapes pour installer et lancer le projet sur votre machine locale.
+L'architecture a été refondue pour plus de clarté et de maintenabilité :
 
-### Prérequis
+```text
+src/
+├── components/
+│   ├── AppLayout.jsx   # Layout global (Navbar + Outlet)
+│   └── Navbar.jsx      # Barre de navigation supérieure
+├── pages/              # Vues principales
+│   ├── Home.jsx
+│   ├── Explore.jsx
+│   ├── Messages.jsx
+│   ├── Profile.jsx
+│   ├── CreatePost.jsx
+│   ├── Notifications.jsx
+│   ├── Settings.jsx
+│   └── Login.jsx
+├── assets/             # Images et logos (logo_sombre.png)
+├── App.jsx             # Configuration des routes
+└── index.css           # Styles globaux et variables Tailwind
+```
 
-* **Node.js** (version 16 ou supérieure recommandée)
-* **npm** (inclus avec Node.js)
+## 📦 Installation & Démarrage
 
-### Installation pas à pas
-
-1.  **Cloner le dépôt**
-    Récupérez le code source sur votre machine :
-    ```bash
-    git clone [https://github.com/votre-compte/OnlyDBFan.git](https://github.com/votre-compte/OnlyDBFan.git)
-    cd OnlyDBFan
-    ```
-
-2.  **Installer les dépendances**
-    Cette commande installe React, Tailwind, Lucide et tous les outils nécessaires listés dans le `package.json` :
+1.  **Installer les dépendances** :
     ```bash
     npm install
     ```
+    *(Assurez-vous d'avoir installé `react-router-dom` si ce n'est pas déjà fait)*
 
-3.  **Lancer le serveur de développement**
-    Démarrez l'application en mode local :
+2.  **Lancer le serveur de développement** :
     ```bash
     npm run dev
     ```
 
-4.  **Accéder à l'application**
-    Ouvrez votre navigateur et allez sur l'adresse indiquée dans le terminal (généralement) :
-    > http://localhost:5173/
-
-## 📂 Structure du Projet
-
-Voici comment est organisé le code source dans le dossier `src/` :
-
-```text
-src/
-├── components/         # Composants d'interface réutilisables
-│   ├── Sidebar.jsx     # Barre de navigation latérale (Gauche)
-│   ├── RightBar.jsx    # Panneau de suggestions (Droite)
-│   └── PostCard.jsx    # Carte de publication avec interactions
-├── App.jsx             # Mise en page principale (Layout 3 colonnes)
-├── index.css           # Configuration Tailwind et variables CSS
-└── main.jsx            # Point d'entrée de l'application
+3.  **Accéder à l'application** :
+    Ouvrez `http://localhost:5173` dans votre navigateur.
