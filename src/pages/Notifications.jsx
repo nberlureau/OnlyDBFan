@@ -7,20 +7,18 @@ export default function Notifications() {
             <main className="flex-1 max-w-3xl mx-auto p-6">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-2xl font-bold text-white/90">Notifications</h2>
-                    <button className="text-primary-notifications font-medium hover:underline">Mark all as read</button>
+                    <button className="text-primary-notifications font-medium hover:underline">Tout marquer comme lu</button>
                 </div>
 
                 <div className="flex gap-4 mb-6 border-b border-border-light dark:border-border-dark">
-                    <button className="pb-3 px-2 border-b-2 border-primary-notifications text-primary-notifications font-bold">All</button>
+                    <button className="pb-3 px-2 border-b-2 border-primary-notifications text-primary-notifications font-bold">Tout</button>
                     <button className="pb-3 px-2 border-b-2 border-transparent text-text-secondary-light dark:text-text-secondary-dark font-medium hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">Mentions</button>
-                    <button className="pb-3 px-2 border-b-2 border-transparent text-text-secondary-light dark:text-text-secondary-dark font-medium hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">Follows</button>
+                    <button className="pb-3 px-2 border-b-2 border-transparent text-text-secondary-light dark:text-text-secondary-dark font-medium hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">Abonnements</button>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    {/* Today */}
-                    <h3 className="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark mt-2 mb-2">Today</h3>
+                    <h3 className="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark mt-2 mb-2">Aujourd'hui</h3>
 
-                    {/* Notification Item (Unread) */}
                     <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-transparent hover:border-primary-notifications/20 transition-colors cursor-pointer relative group">
                         <div className="relative shrink-0">
                             <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
@@ -32,14 +30,13 @@ export default function Notifications() {
                         </div>
                         <div className="flex-1">
                             <p className="text-white/90 leading-snug">
-                                <span className="font-bold">Liam Designs</span> commented on your post: "This looks amazing! Great work on the colors."
+                                <span className="font-bold">Liam Designs</span> a commenté votre publication : "Ça a l'air incroyable ! Super travail sur les couleurs."
                             </p>
-                            <span className="text-xs text-primary-notifications font-medium mt-1 block">2 hours ago</span>
+                            <span className="text-xs text-primary-notifications font-medium mt-1 block">il y a 2 heures</span>
                         </div>
                         <div className="size-3 bg-primary-notifications rounded-full shrink-0 mt-2"></div>
                     </div>
 
-                    {/* Notification Item (Unread) */}
                     <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-transparent hover:border-primary-notifications/20 transition-colors cursor-pointer relative group">
                         <div className="relative shrink-0">
                             <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
@@ -51,18 +48,16 @@ export default function Notifications() {
                         </div>
                         <div className="flex-1">
                             <p className="text-white/90 leading-snug">
-                                <span className="font-bold">Olivia Codes</span> and <span className="font-bold">14 others</span> liked your photo.
+                                <span className="font-bold">Olivia Codes</span> et <span className="font-bold">14 autres</span> ont aimé votre photo.
                             </p>
-                            <span className="text-xs text-primary-notifications font-medium mt-1 block">4 hours ago</span>
+                            <span className="text-xs text-primary-notifications font-medium mt-1 block">il y a 4 heures</span>
                         </div>
                         <div className="size-3 bg-primary-notifications rounded-full shrink-0 mt-2"></div>
                         <img className="size-12 rounded-lg object-cover shrink-0 ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5G1BedjcAY76ZKGAgKITkpDpRJzH3di4iwP7ENEGWOIbLWpsFSX6To0K49l7UsJTYiZpeR4di0YrPeMegZ7TDhfJXkj546ftssOTx0FhpKl3PO1cuKA22_jk74jfsyGK0ybUo6WUw-34TkS2s9-1yOyArwWE3Pi5d6i_Q9o2Svp2Nrz1ZdpXX6oGP0uziQ_EKXl9Mm7XInN6xQ9j1OwGfH7rFbnbpHNexQpXF69WOSxuW63K391tr23QN1agTAxshy7eMkBVhhn_r" />
                     </div>
 
-                    {/* Yesterday */}
-                    <h3 className="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark mt-6 mb-2">Yesterday</h3>
+                    <h3 className="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark mt-6 mb-2">Hier</h3>
 
-                    {/* Notification Item (Read) */}
                     <div className="flex items-start gap-4 p-4 rounded-xl bg-transparent border border-white/10 hover:bg-white/5 transition-colors cursor-pointer relative group">
                         <div className="relative shrink-0">
                             <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
@@ -74,14 +69,13 @@ export default function Notifications() {
                         </div>
                         <div className="flex-1">
                             <p className="text-white/90 leading-snug">
-                                <span className="font-bold">Noah Art</span> started following you.
+                                <span className="font-bold">Noah Art</span> a commencé à vous suivre.
                             </p>
-                            <span className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 block">1 day ago</span>
+                            <span className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 block">il y a 1 jour</span>
                         </div>
-                        <button className="px-4 py-1.5 bg-primary-notifications text-white text-sm font-bold rounded-lg hover:bg-primary-notifications/90 transition-colors">Follow Back</button>
+                        <button className="px-4 py-1.5 bg-primary-notifications text-white text-sm font-bold rounded-lg hover:bg-primary-notifications/90 transition-colors">Suivre en retour</button>
                     </div>
 
-                    {/* Notification Item (Read) */}
                     <div className="flex items-start gap-4 p-4 rounded-xl bg-transparent border border-white/10 hover:bg-white/5 transition-colors cursor-pointer relative group">
                         <div className="relative shrink-0">
                             <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
@@ -93,9 +87,9 @@ export default function Notifications() {
                         </div>
                         <div className="flex-1">
                             <p className="text-white/90 leading-snug">
-                                <span className="font-bold">Sofia Chen</span> mentioned you in a comment: "@janedoe check this out!"
+                                <span className="font-bold">Sofia Chen</span> vous a mentionné dans un commentaire : "@janedoe regarde ça !"
                             </p>
-                            <span className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 block">1 day ago</span>
+                            <span className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 block">il y a 1 jour</span>
                         </div>
                         <img className="size-12 rounded-lg object-cover shrink-0 ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Sm_WxNnVyIZ74ehwSTCIDRAUw1zMEHNWrshhVVGYT6ji52nlZ5wb54aSvzNJt_vn0MlYY0ow6CtddyV8axbWZNuIZzy1n5Nprm4hnlqavMmDJ1-4M9rfBSMLdTmILEQC5RyBmY-_67YGig2ZyO-S3SW31CkBmTYfeT1yFlcPikdMKr-bKBfXNOhqyj5RMPZoa66k502uYUEdKLii2KpgO9SBsbgeb_SpfIgi70hNaxsUlIsb6q7GQU5kr3FkpXFiwCtUNesSSqqg" />
                     </div>
