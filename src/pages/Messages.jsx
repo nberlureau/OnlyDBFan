@@ -16,7 +16,7 @@ export default function Messages() {
                         <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-black/40 dark:text-white/40">search</span>
                         <input
                             className="w-full bg-white/5 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder:text-white/40 text-white/90"
-                            placeholder="Search messages" type="text" />
+                            placeholder="Rechercher des messages" type="text" />
                     </div>
                 </div>
                 <div className="flex-1 overflow-y-auto">
@@ -34,7 +34,7 @@ export default function Messages() {
                                     <h3 className="font-semibold truncate">Liam Designs</h3>
                                     <span className="text-xs text-primary font-medium">2m</span>
                                 </div>
-                                <p className="text-sm text-black/60 dark:text-white/60 truncate">Sure, I can send over the files later today.</p>
+                                <p className="text-sm text-black/60 dark:text-white/60 truncate">Bien sûr, je peux envoyer les fichiers plus tard dans la journée.</p>
                             </div>
                         </div>
                         {/* Other Chats */}
@@ -50,7 +50,7 @@ export default function Messages() {
                                     <h3 className="font-semibold truncate">Olivia Codes</h3>
                                     <span className="text-xs text-black/40 dark:text-white/40">1h</span>
                                 </div>
-                                <p className="text-sm text-black/60 dark:text-white/60 truncate">Did you see the new update?</p>
+                                <p className="text-sm text-black/60 dark:text-white/60 truncate">As-tu vu la nouvelle mise à jour ?</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer transition-colors">
@@ -65,7 +65,7 @@ export default function Messages() {
                                     <h3 className="font-semibold truncate">Noah Art</h3>
                                     <span className="text-xs text-black/40 dark:text-white/40">3h</span>
                                 </div>
-                                <p className="text-sm text-black/60 dark:text-white/60 truncate font-medium text-[#1c0d11] dark:text-white/90">Thanks for the feedback!</p>
+                                <p className="text-sm text-black/60 dark:text-white/60 truncate font-medium text-[#1c0d11] dark:text-white/90">Merci pour le retour !</p>
                             </div>
                             <div className="size-2 bg-primary rounded-full"></div>
                         </div>
@@ -79,9 +79,9 @@ export default function Messages() {
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between mb-1">
                                     <h3 className="font-semibold truncate">Sofia Chen</h3>
-                                    <span className="text-xs text-black/40 dark:text-white/40">1d</span>
+                                    <span className="text-xs text-black/40 dark:text-white/40">1j</span>
                                 </div>
-                                <p className="text-sm text-black/60 dark:text-white/60 truncate">Let's meet up next week.</p>
+                                <p className="text-sm text-black/60 dark:text-white/60 truncate">Rencontrons-nous la semaine prochaine.</p>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export default function Messages() {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg">Liam Designs</h3>
-                            <p className="text-xs text-green-500 font-medium">Online</p>
+                            <p className="text-xs text-green-500 font-medium">En ligne</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 text-primary">
@@ -120,7 +120,7 @@ export default function Messages() {
                 {/* Messages */}
                 <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
                     <div className="flex justify-center mb-4">
-                        <span className="text-xs text-black/40 dark:text-white/40 bg-black/5 dark:bg-white/5 px-3 py-1 rounded-full">Today</span>
+                        <span className="text-xs text-black/40 dark:text-white/40 bg-black/5 dark:bg-white/5 px-3 py-1 rounded-full">Aujourd'hui</span>
                     </div>
 
                     {/* Message Received */}
@@ -130,7 +130,7 @@ export default function Messages() {
                         </div>
                         <div className="flex flex-col gap-1">
                             <div className="bg-[#151a30] p-3 rounded-2xl rounded-bl-none shadow-sm border border-white/5">
-                                <p className="text-white/90">Hey! How's the project coming along?</p>
+                                <p className="text-white/90">Hé ! Comment avance le projet ?</p>
                             </div>
                             <span className="text-xs text-black/40 dark:text-white/40 ml-2">10:30 AM</span>
                         </div>
@@ -140,7 +140,7 @@ export default function Messages() {
                     <div className="flex gap-3 max-w-[70%] ml-auto flex-row-reverse">
                         <div className="flex flex-col gap-1 items-end">
                             <div className="bg-primary text-white p-3 rounded-2xl rounded-br-none shadow-md">
-                                <p>It's going great! I've just finished the main layout.</p>
+                                <p>Ça avance super bien ! Je viens de finir la mise en page principale.</p>
                             </div>
                             <span className="text-xs text-black/40 dark:text-white/40 mr-2">10:32 AM</span>
                         </div>
@@ -153,7 +153,7 @@ export default function Messages() {
                         </div>
                         <div className="flex flex-col gap-1">
                             <div className="bg-[#151a30] p-3 rounded-2xl rounded-bl-none shadow-sm border border-white/5">
-                                <p className="text-white/90">That's awesome! Can you send over the files later today?</p>
+                                <p className="text-white/90">C'est génial ! Peux-tu m'envoyer les fichiers plus tard aujourd'hui ?</p>
                             </div>
                             <span className="text-xs text-black/40 dark:text-white/40 ml-2">10:33 AM</span>
                         </div>
@@ -163,7 +163,7 @@ export default function Messages() {
                     <div className="flex gap-3 max-w-[70%] ml-auto flex-row-reverse">
                         <div className="flex flex-col gap-1 items-end">
                             <div className="bg-primary text-white p-3 rounded-2xl rounded-br-none shadow-md">
-                                <p>Sure, I can send over the files later today.</p>
+                                <p>Bien sûr, je peux t'envoyer les fichiers plus tard.</p>
                             </div>
                             <div className="flex items-center gap-1 mr-2">
                                 <span className="text-xs text-black/40 dark:text-white/40">10:35 AM</span>
@@ -181,7 +181,7 @@ export default function Messages() {
                         </button>
                         <textarea
                             className="flex-1 bg-transparent border-none resize-none max-h-32 min-h-[44px] py-2.5 focus:ring-0 text-white/90 placeholder:text-white/40"
-                            placeholder="Type a message..." rows="1"></textarea>
+                            placeholder="Écrivez un message..." rows="1"></textarea>
                         <button className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 text-primary transition-colors">
                             <span className="material-symbols-outlined">mood</span>
                         </button>
@@ -207,25 +207,25 @@ export default function Messages() {
                         <button className="p-3 bg-black/5 dark:bg-white/5 rounded-full mb-1 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
                             <span className="material-symbols-outlined text-primary">person</span>
                         </button>
-                        <span className="text-xs font-medium">Profile</span>
+                        <span className="text-xs font-medium">Profil</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <button className="p-3 bg-black/5 dark:bg-white/5 rounded-full mb-1 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
                             <span className="material-symbols-outlined text-primary">notifications_off</span>
                         </button>
-                        <span className="text-xs font-medium">Mute</span>
+                        <span className="text-xs font-medium">Muet</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <button className="p-3 bg-black/5 dark:bg-white/5 rounded-full mb-1 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
                             <span className="material-symbols-outlined text-primary">search</span>
                         </button>
-                        <span className="text-xs font-medium">Search</span>
+                        <span className="text-xs font-medium">Rechercher</span>
                     </div>
                 </div>
 
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between cursor-pointer group">
-                        <h3 className="font-bold text-sm text-black/60 dark:text-white/60 group-hover:text-primary transition-colors">Media, Files & Links</h3>
+                        <h3 className="font-bold text-sm text-black/60 dark:text-white/60 group-hover:text-primary transition-colors">Médias, fichiers et liens</h3>
                         <span className="material-symbols-outlined text-black/40 dark:text-white/40 group-hover:text-primary transition-colors">chevron_right</span>
                     </div>
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
@@ -235,7 +235,7 @@ export default function Messages() {
                     </div>
 
                     <div className="flex items-center justify-between cursor-pointer group mt-2">
-                        <h3 className="font-bold text-sm text-black/60 dark:text-white/60 group-hover:text-primary transition-colors">Privacy & Support</h3>
+                        <h3 className="font-bold text-sm text-black/60 dark:text-white/60 group-hover:text-primary transition-colors">Confidentialité et support</h3>
                         <span className="material-symbols-outlined text-black/40 dark:text-white/40 group-hover:text-primary transition-colors">chevron_right</span>
                     </div>
                 </div>
