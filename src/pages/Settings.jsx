@@ -3,50 +3,10 @@ import React from 'react';
 export default function Settings() {
     return (
         <div className="font-display bg-transparent text-gray-100 min-h-screen flex">
-            {/* SideNavBar */}
-            <aside className="fixed top-[72px] left-0 h-[calc(100vh-72px)] w-64 bg-[#050816] p-6 border-r border-white/10 flex flex-col justify-between z-20">
-                <div>
-                    <div className="flex items-center gap-3 mb-10 text-primary">
-                        <span className="material-symbols-outlined text-4xl">hub</span>
-                        <h1 className="text-2xl font-bold tracking-tight text-[#1c0d11] dark:text-white/90">ConnectSphere</h1>
-                    </div>
-                    <nav className="flex flex-col gap-2">
-                        <a className="flex items-center gap-4 px-4 py-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-all duration-200 group"
-                            href="/">
-                            <span className="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
-                            <span className="text-base font-medium">Feed</span>
-                        </a>
-                        <a className="flex items-center gap-4 px-4 py-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-all duration-200 group"
-                            href="/explore">
-                            <span className="material-symbols-outlined group-hover:scale-110 transition-transform">explore</span>
-                            <span className="text-base font-medium">Discover</span>
-                        </a>
-                        <a className="flex items-center gap-4 px-4 py-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-all duration-200 group"
-                            href="/messages">
-                            <span className="material-symbols-outlined group-hover:scale-110 transition-transform">chat</span>
-                            <span className="text-base font-medium">Chats</span>
-                        </a>
-                        <a className="flex items-center gap-4 px-4 py-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-all duration-200 group"
-                            href="/profile">
-                            <span className="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
-                            <span className="text-base font-medium">My Profile</span>
-                        </a>
-                        <a className="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary text-white shadow-lg shadow-primary/30"
-                            href="/settings">
-                            <span className="material-symbols-outlined fill" style={{ fontVariationSettings: "'FILL' 1" }}>settings</span>
-                            <span className="text-base font-bold">Settings</span>
-                        </a>
-                    </nav>
-                </div>
-                <div className="bg-gradient-to-br from-primary/20 to-orange-300/20 p-4 rounded-2xl">
-                    <p className="text-sm font-semibold mb-2 text-[#1c0d11] dark:text-white/90">Go Premium</p>
-                    <p className="text-xs text-black/60 dark:text-white/60 mb-3">Unlock exclusive features and analytics.</p>
-                    <button className="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">Upgrade</button>
-                </div>
-            </aside>
-
             {/* Main Content */}
-            <main className="ml-64 flex-1 p-8">
+            <main className="flex-1 p-8">
+
+
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-3xl font-bold text-white/90 mb-8">Settings</h1>
 
