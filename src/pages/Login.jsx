@@ -12,7 +12,7 @@ export default function Login() {
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-6">
                             <span className="material-symbols-outlined text-5xl">hub</span>
-                            <h1 className="text-3xl font-bold tracking-tight">ConnectSphere</h1>
+                            <h1 className="text-3xl font-bold tracking-tight">OnlyDBFan</h1>
                         </div>
                         <p className="text-lg text-white/90 font-medium max-w-md">Join the community of creators and thinkers shaping the future of digital connection.</p>
                     </div>
