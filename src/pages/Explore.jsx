@@ -10,7 +10,7 @@ export default function Explore() {
                         <div className="mx-auto max-w-4xl px-8 py-6">
                             {/* Top Bar with Search */}
                             <header className="flex h-12 items-center justify-between pb-6">
-                                <h2 className="text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explore
+                                <h2 className="text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explorer
                                 </h2>
                                 <div className="flex items-center gap-4">
                                     <button
@@ -32,14 +32,14 @@ export default function Explore() {
                                         </div>
                                         <input
                                             className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#1c0d11] dark:text-white/90 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-[#9c4962] dark:placeholder:text-white/60 px-4 pl-2 text-base font-normal leading-normal"
-                                            placeholder="Search photos, videos, or accounts..." defaultValue="" />
+                                            placeholder="Rechercher des photos, vidéos ou comptes..." defaultValue="" />
                                     </div>
                                 </label>
                             </div>
                             {/* Chips */}
                             <div className="flex gap-3 mb-6">
                                 <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-4">
-                                    <p className="text-white text-sm font-medium leading-normal">For you</p>
+                                    <p className="text-white text-sm font-medium leading-normal">Pour vous</p>
                                 </button>
                                 <button
                                     className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-4 transition-colors">
@@ -51,11 +51,11 @@ export default function Explore() {
                                 </button>
                                 <button
                                     className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-4 transition-colors">
-                                    <p className="text-[#1c0d11] dark:text-white/90 text-sm font-medium leading-normal">Videos</p>
+                                    <p className="text-[#1c0d11] dark:text-white/90 text-sm font-medium leading-normal">Vidéos</p>
                                 </button>
                                 <button
                                     className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-4 transition-colors">
-                                    <p className="text-[#1c0d11] dark:text-white/90 text-sm font-medium leading-normal">Accounts</p>
+                                    <p className="text-[#1c0d11] dark:text-white/90 text-sm font-medium leading-normal">Comptes</p>
                                 </button>
                             </div>
                             {/* ImageGrid */}
@@ -186,7 +186,7 @@ export default function Explore() {
                     {/* Right Sidebar */}
                     <aside className="w-80 border-l border-white/10 p-6 flex-col gap-8 hidden lg:flex">
                         <div className="bg-white/5 rounded-lg p-4">
-                            <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Suggested Creators</h3>
+                            <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Créateurs suggérés</h3>
                             <div className="flex flex-col gap-4">
                                 <div className="flex items-center gap-3">
                                     <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
@@ -198,7 +198,7 @@ export default function Explore() {
                                         <p className="text-xs text-[#9c4962] dark:text-white/60">@liam_designs</p>
                                     </div>
                                     <button
-                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Follow</button>
+                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Suivre</button>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
@@ -210,7 +210,7 @@ export default function Explore() {
                                         <p className="text-xs text-[#9c4962] dark:text-white/60">@olivia_codes</p>
                                     </div>
                                     <button
-                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Follow</button>
+                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Suivre</button>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
@@ -222,12 +222,12 @@ export default function Explore() {
                                         <p className="text-xs text-[#9c4962] dark:text-white/60">@noah_art</p>
                                     </div>
                                     <button
-                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Follow</button>
+                                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-primary text-white text-xs font-bold transition-transform hover:scale-105">Suivre</button>
                                 </div>
                             </div>
                         </div>
                         <div className="bg-white/5 rounded-lg p-4">
-                            <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Trending Tags</h3>
+                            <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Tendances</h3>
                             <div className="flex flex-col gap-3">
                                 <div>
                                     <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#uidesign</p>
