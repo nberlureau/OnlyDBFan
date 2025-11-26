@@ -7,12 +7,11 @@ export default function Profile() {
             <main className="flex-1 relative">
 
 
-                {/* Cover Image */}
                 <div className="h-64 w-full bg-cover bg-center relative"
                     style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")' }}>
                     <div className="absolute inset-0 bg-black/20"></div>
                     <button className="absolute bottom-4 right-8 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 transition-colors flex items-center gap-2">
-                        <span className="material-symbols-outlined text-lg">edit</span> Edit Cover
+                        <span className="material-symbols-outlined text-lg">edit</span> Modifier la couverture
                     </button>
                 </div>
 
@@ -38,8 +37,8 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className="flex gap-3 mb-4">
-                            <button className="px-6 py-2.5 rounded-lg border-2 border-black/10 dark:border-white/10 font-bold text-[#1c0d11] dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Message</button>
-                            <button className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Follow</button>
+                            <button className="px-6 py-2.5 rounded-lg border-2 border-black/10 dark:border-white/10 font-bold text-[#1c0d11] dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Envoyer un message</button>
+                            <button className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Suivre</button>
                         </div>
                     </div>
 
@@ -47,23 +46,23 @@ export default function Profile() {
                     <div className="flex gap-8 mb-8 border-b border-black/10 dark:border-white/10 pb-6">
                         <div className="flex gap-2 items-baseline">
                             <span className="text-xl font-bold text-[#1c0d11] dark:text-white/90">1.2k</span>
-                            <span className="text-black/60 dark:text-white/60">Posts</span>
+                            <span className="text-black/60 dark:text-white/60">Publications</span>
                         </div>
                         <div className="flex gap-2 items-baseline">
                             <span className="text-xl font-bold text-[#1c0d11] dark:text-white/90">45.8k</span>
-                            <span className="text-black/60 dark:text-white/60">Followers</span>
+                            <span className="text-black/60 dark:text-white/60">Abonnés</span>
                         </div>
                         <div className="flex gap-2 items-baseline">
                             <span className="text-xl font-bold text-[#1c0d11] dark:text-white/90">1,024</span>
-                            <span className="text-black/60 dark:text-white/60">Following</span>
+                            <span className="text-black/60 dark:text-white/60">Abonnements</span>
                         </div>
                     </div>
 
                     {/* Tabs */}
                     <div className="flex gap-8 mb-8">
-                        <button className="pb-2 border-b-2 border-primary text-primary font-bold">Posts</button>
-                        <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">About</button>
-                        <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">Friends</button>
+                        <button className="pb-2 border-b-2 border-primary text-primary font-bold">Publications</button>
+                        <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">À propos</button>
+                        <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">Amis</button>
                         <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">Photos</button>
                     </div>
 
