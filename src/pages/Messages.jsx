@@ -2,43 +2,9 @@ import React from 'react';
 
 export default function Messages() {
     return (
-        <div className="font-display bg-transparent text-gray-100 h-screen min-h-[700px] w-full flex overflow-hidden">
-            {/* SideNavBar (Collapsed/Mini version for Messages page as per design) */}
-            <aside className="flex w-20 flex-col items-center gap-8 border-r border-white/10 py-6 bg-[#050816] pt-[72px] h-full fixed top-0 left-0 z-40">
-                <div className="flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined text-3xl">chat_bubble</span>
-                </div>
-                <div className="flex flex-col gap-6 w-full items-center">
-                    <a className="p-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors"
-                        href="/">
-                        <span className="material-symbols-outlined text-2xl">home</span>
-                    </a>
-                    <a className="p-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors"
-                        href="/explore">
-                        <span className="material-symbols-outlined text-2xl">explore</span>
-                    </a>
-                    <a className="p-3 rounded-xl bg-primary/10 text-primary" href="/messages">
-                        <span className="material-symbols-outlined text-2xl fill" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
-                    </a>
-                    <a className="p-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors"
-                        href="/notifications">
-                        <span className="material-symbols-outlined text-2xl">notifications</span>
-                    </a>
-                    <a className="p-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors"
-                        href="/profile">
-                        <span className="material-symbols-outlined text-2xl">person</span>
-                    </a>
-                </div>
-                <div className="mt-auto">
-                    <a className="p-3 rounded-xl text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary transition-colors"
-                        href="/settings">
-                        <span className="material-symbols-outlined text-2xl">settings</span>
-                    </a>
-                </div>
-            </aside>
-
+        <div className="font-display bg-transparent text-gray-100 h-screen w-full flex overflow-hidden">
             {/* Conversation List */}
-            <div className="w-80 border-r border-white/10 flex flex-col bg-[#050816] ml-20 pt-[72px]">
+            <div className="w-80 border-r border-white/10 flex flex-col bg-[#050816]">
                 <div className="p-6 border-b border-white/10">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold">Messages</h2>
@@ -123,7 +89,7 @@ export default function Messages() {
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 flex flex-col bg-transparent pt-[72px]">
+            <div className="flex-1 flex flex-col bg-transparent">
                 {/* Chat Header */}
                 <header className="h-20 border-b border-white/10 flex items-center justify-between px-6 bg-[#050816]">
                     <div className="flex items-center gap-4">
@@ -227,7 +193,7 @@ export default function Messages() {
             </div>
 
             {/* User Info Panel (Right Sidebar) */}
-            <div className="w-72 border-l border-white/10 bg-[#050816] hidden xl:flex flex-col p-6 overflow-y-auto pt-[72px]">
+            <div className="w-72 border-l border-white/10 bg-[#050816] hidden xl:flex flex-col p-6 overflow-y-auto">
                 <div className="flex flex-col items-center mb-6">
                     <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24 mb-4"
                         style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1iYduTiyUnzvTvDELoskoTZxAMb0rS1BB-DyuIC0qOWXr9praYvezjUvDZBNOu48kElCYga1c56os9usneCpIGSp5gduEx21hV4gFiuEbYT23v8qInmEvFm6smgt0eTnILGarudbqW0PTU969kJAf0d_XRNqTcZ2PX5JTXfSUX4QdSjzuXxvpmOjWx9_-mAbolyrS9pwQbHvhRocAcwWVpMcKqIHY_G0WldNgC1Gma_mgAWq9I116ffVveDRcDm04rAjHJvpmetD8")' }}>
