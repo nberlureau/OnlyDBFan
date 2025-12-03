@@ -60,3 +60,18 @@ Tag,Signification,Exemple
 [REFACTOR],Amélioration du code sans changer le comportement,[REFACTOR] Nettoyage du controller User
 [DOCS],Documentation uniquement,[DOCS] Mise à jour du Swagger
 [CHORE],"Maintenance (dépendances, config...)",[CHORE] Update docker-compose
+```
+
+## 🛠 Installation & Configuration
+
+Ce projet nécessite **Node.js** (v20+) et **Docker**.
+
+### 1. Installation des dépendances (API)
+Installez le framework Express et les drivers pour communiquer avec les 3 bases de données (Mongoose, Redis Client, Cassandra Driver).
+
+### 📦 Installation des dépendances
+
+Pour installer Express et tous les drivers de base de données (MongoDB, Redis, Cassandra) ainsi que Swagger :
+
+```bash
+npm install express mongoose redis cassandra-driver swagger-ui-express swagger-jsdoc
