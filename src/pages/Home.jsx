@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Home() {
     return (
-        <div className="font-display bg-transparent text-gray-100 min-h-screen">
+        <div className="font-display bg-transparent text-gray-900 dark:text-gray-100 min-h-screen">
             <div className="flex-1">
                 <main className="grid grid-cols-12 gap-8 px-8 py-6">
                     <div className="col-span-12 lg:col-span-7 flex flex-col gap-6">
                         {/* Composer */}
-                        <div className="bg-white/5 rounded-lg shadow-sm p-4 border border-white/10">
+                        <div className="bg-white dark:bg-white/5 rounded-lg shadow-sm p-4 border border-gray-200 dark:border-white/10">
                             <div className="flex gap-4">
                                 <img className="size-12 rounded-full shrink-0" data-alt="User avatar Jane Doe"
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKAP-N51JKRv4siJBUiRmGuBd-W9Kj6aSOmyQxQU5pWQ5T5-kzqWuSOUnMiC5oPONC6T5xpHqLXxBmMjd-X0D20nCRUmBY0yrylaamyNpc-qvy7FRzLER-_mEXlny6LvC5xS4_ixlHWmaiYrbKHxo3oXzBCGubh4ubdgEvfuhEbB1qOZi2yn8E9uMhVI2SJ8Er2C2WvIsvry9K8Q7k7-L6vPSHIr0Cb52JMsiRArhYKPOjdfo-QS53t3UcK5n1lo6gu0ij3kVJTfZ" />
@@ -43,7 +43,7 @@ export default function Home() {
                             </div>
                         </div>
                         {/* Feed Post Card 1 */}
-                        <div className="bg-white/5 rounded-lg shadow-sm border border-white/10">
+                        <div className="bg-white dark:bg-white/5 rounded-lg shadow-sm border border-gray-200 dark:border-white/10">
                             <div className="p-4">
                                 <div className="flex items-center gap-3">
                                     <img className="size-10 rounded-full" data-alt="Avatar of Olivia Wilson"
@@ -122,7 +122,7 @@ export default function Home() {
                     </div>
                     {/* Right Column: Suggestions & Trends */}
                     <aside className="col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-6">
-                        <div className="bg-white/5 rounded-lg shadow-sm p-4 border border-white/10">
+                        <div className="bg-white dark:bg-white/5 rounded-lg shadow-sm p-4 border border-gray-200 dark:border-white/10">
                             <h3 className="font-bold text-lg mb-4 text-[#1d0c11] dark:text-white">Suggestions pour vous</h3>
                             <div className="flex flex-col gap-4">
                                 <div className="flex items-center">

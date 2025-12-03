@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Explore() {
     return (
-        <div className="font-display bg-transparent text-gray-100 h-screen w-full flex flex-col overflow-hidden relative">
+        <div className="font-display bg-transparent text-gray-900 dark:text-gray-100 h-screen w-full flex flex-col overflow-hidden relative">
             <div className="flex h-full w-full">
                 <div className="flex flex-1">
                     {/* Main Content */}
@@ -10,15 +10,15 @@ export default function Explore() {
                         <div className="mx-auto max-w-4xl px-8 py-6">
                             {/* Top Bar with Search */}
                             <header className="flex h-12 items-center justify-between pb-6">
-                                <h2 className="text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explorer
+                                <h2 className="text-gray-900 dark:text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explorer
                                 </h2>
                                 <div className="flex items-center gap-4">
                                     <button
-                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90 hover:bg-white/10 transition-colors">
+                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white/90 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
                                         <span className="material-symbols-outlined text-xl">notifications</span>
                                     </button>
                                     <button
-                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-white/5 text-white/90 hover:bg-white/10 transition-colors">
+                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white/90 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
                                         <span className="material-symbols-outlined text-xl">dark_mode</span>
                                     </button>
                                 </div>
@@ -26,7 +26,7 @@ export default function Explore() {
                             {/* SearchBar */}
                             <div className="mb-6">
                                 <label className="flex flex-col min-w-40 h-14 w-full">
-                                    <div className="flex w-full flex-1 items-stretch rounded-lg h-full bg-white/5">
+                                    <div className="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-100 dark:bg-white/5">
                                         <div className="text-[#9c4962] dark:text-white/60 flex items-center justify-center pl-4">
                                             <span className="material-symbols-outlined text-2xl">search</span>
                                         </div>
@@ -184,8 +184,8 @@ export default function Explore() {
                         </div>
                     </main>
                     {/* Right Sidebar */}
-                    <aside className="w-80 border-l border-white/10 p-6 flex-col gap-8 hidden lg:flex">
-                        <div className="bg-white/5 rounded-lg p-4">
+                    <aside className="w-80 border-l border-gray-200 dark:border-white/10 p-6 flex-col gap-8 hidden lg:flex">
+                        <div className="bg-white dark:bg-white/5 rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Créateurs suggérés</h3>
                             <div className="flex flex-col gap-4">
                                 <div className="flex items-center gap-3">
