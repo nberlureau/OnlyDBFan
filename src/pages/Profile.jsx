@@ -20,7 +20,9 @@ export default function Profile() {
                 <div className="h-64 w-full bg-cover bg-center relative"
                     style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")' }}>
                     <div className="absolute inset-0 bg-black/20"></div>
-                    <button className="absolute bottom-4 right-8 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 transition-colors flex items-center gap-2">
+                    <button
+                        onClick={() => alert("Fonctionnalité 'Modifier la couverture' simulée.")}
+                        className="absolute bottom-4 right-8 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 transition-colors flex items-center gap-2">
                         <span className="material-symbols-outlined text-lg">edit</span> Modifier la couverture
                     </button>
                 </div>
@@ -108,7 +110,15 @@ export default function Profile() {
                         >
                             Amis
                         </button>
-                        <button className="pb-2 border-b-2 border-transparent text-black/60 dark:text-white/60 font-medium hover:text-[#1c0d11] dark:hover:text-white/90 transition-colors">Photos</button>
+                        <button
+                            onClick={() => setActiveTab('photos')}
+                            className={`pb-2 border-b-2 font-medium transition-colors ${activeTab === 'photos'
+                                ? 'border-primary text-primary font-bold'
+                                : 'border-transparent text-black/60 dark:text-white/60 hover:text-[#1c0d11] dark:hover:text-white/90'
+                                }`}
+                        >
+                            Photos
+                        </button>
                     </div>
 
                     {/* Content Area */}
@@ -266,6 +276,26 @@ export default function Profile() {
                                     <button className="ml-auto p-2 text-gray-400 hover:text-primary hover:bg-primary/10 rounded-full transition-colors">
                                         <span className="material-symbols-outlined">person_add</span>
                                     </button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {activeTab === 'photos' && (
+                        <div className="grid grid-cols-3 gap-4 animate-fade-in">
+                            {[1, 2, 3, 4, 5, 6].map((item) => (
+                                <div key={item} className="aspect-square bg-white/5 rounded-xl overflow-hidden relative group cursor-pointer">
+                                    <img
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src={`https://source.unsplash.com/random/400x400?sig=${item}`}
+                                        alt={`Photo ${item}`}
+                                    />
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6 text-white">
+                                        <div className="flex items-center gap-2">
+                                            <span className="material-symbols-outlined fill" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                                            <span className="font-bold">{Math.floor(Math.random() * 2000) + 100}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
