@@ -34,20 +34,20 @@ export default function CreatePost() {
                     {/* Footer adaptatif */}
                     <div className="p-6 bg-gray-50 dark:bg-white/5 border-t border-gray-200 dark:border-white/10 flex items-center justify-between">
                         <div className="flex gap-2">
-                            {/* Boutons d'action avec hover adaptatif */}
-                            <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-primary transition-colors" title="Photo/Video">
+                            {/* Boutons d'action avec hover adaptatif - Style "ronds noirs" en light mode */}
+                            <button className="p-2 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 transition-colors" title="Photo/Video">
                                 <span className="material-symbols-outlined">image</span>
                             </button>
-                            <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-blue-500 transition-colors" title="Tag People">
+                            <button className="p-2 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 transition-colors" title="Tag People">
                                 <span className="material-symbols-outlined">person_add</span>
                             </button>
-                            <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-yellow-500 transition-colors" title="Feeling/Activity">
+                            <button className="p-2 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 transition-colors" title="Feeling/Activity">
                                 <span className="material-symbols-outlined">mood</span>
                             </button>
-                            <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-red-500 transition-colors" title="Check in">
+                            <button className="p-2 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 transition-colors" title="Check in">
                                 <span className="material-symbols-outlined">location_on</span>
                             </button>
-                            <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-gray-500 dark:text-white/60 transition-colors" title="More">
+                            <button className="p-2 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 transition-colors" title="More">
                                 <span className="material-symbols-outlined">more_horiz</span>
                             </button>
                         </div>

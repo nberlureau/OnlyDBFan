@@ -1,6 +1,11 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
+import { Sun, Moon, Monitor } from 'lucide-react';
+
 
 export default function Settings() {
+    const { theme, setTheme } = useTheme();
+
     return (
         // Fond transparent et texte adaptatif
         <div className="font-display bg-transparent text-gray-900 dark:text-gray-100 min-h-screen flex">
@@ -72,6 +77,43 @@ export default function Settings() {
                             <section className="bg-white dark:bg-white/5 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-white/5">
                                 <h2 className="text-xl font-bold text-gray-900 dark:text-white/90 mb-6">Préférences</h2>
                                 <div className="space-y-6">
+                                    {/* Theme Selector */}
+                                    <div className="space-y-4">
+                                        <h3 className="font-bold text-gray-900 dark:text-white/90">Thème</h3>
+                                        <div className="grid grid-cols-3 gap-4">
+                                            <button
+                                                onClick={() => setTheme('light')}
+                                                className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all ${theme === 'light'
+                                                        ? 'border-primary bg-primary/5 text-primary'
+                                                        : 'border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-white/60'
+                                                    }`}
+                                            >
+                                                <Sun size={24} />
+                                                <span className="font-medium">Clair</span>
+                                            </button>
+                                            <button
+                                                onClick={() => setTheme('dark')}
+                                                className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all ${theme === 'dark'
+                                                        ? 'border-primary bg-primary/5 text-primary'
+                                                        : 'border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-white/60'
+                                                    }`}
+                                            >
+                                                <Moon size={24} />
+                                                <span className="font-medium">Sombre</span>
+                                            </button>
+                                            <button
+                                                onClick={() => setTheme('system')}
+                                                className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all ${theme === 'system'
+                                                        ? 'border-primary bg-primary/5 text-primary'
+                                                        : 'border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-white/60'
+                                                    }`}
+                                            >
+                                                <Monitor size={24} />
+                                                <span className="font-medium">Système</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
                                     {/* Toggle switch adaptatif */}
                                     <div className="flex items-center justify-between">
                                         <div>
