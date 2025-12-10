@@ -73,7 +73,7 @@ export default function Settings() {
                         <div className="flex-1 space-y-8">
                             {/* Section Informations du profil (Account) */}
                             {activeSection === 'account' && (
-                                <section className="bg-white dark:bg-white/5 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-white/5 animate-fade-in">
+                                <section className="bg-white dark:bg-white/5 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-white/5 animate-fade-in relative">
                                     <h2 className="text-xl font-bold text-gray-900 dark:text-white/90 mb-6">Informations du profil</h2>
                                     <div className="flex items-center gap-6 mb-8">
                                         <div className="relative">
@@ -115,7 +115,11 @@ export default function Settings() {
                                     </div>
                                     <div className="flex justify-end gap-4 mt-8">
                                         <button className="px-6 py-2.5 rounded-lg font-bold text-gray-500 dark:text-white/60 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">Annuler</button>
-                                        <button className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Enregistrer</button>
+                                        <button
+                                            onClick={() => alert("Modifications enregistrées avec succès (Simulation)")}
+                                            className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">
+                                            Enregistrer
+                                        </button>
                                     </div>
                                 </section>
                             )}
