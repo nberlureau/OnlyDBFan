@@ -1,118 +1,81 @@
+```javascript
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { mockApi } from '../services/mockApi';
 
 const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
 
 export const DataProvider = ({ children }) => {
-    // --- Mock Data ---
+    // State initialization
+    const [currentUser, setCurrentUser] = useState(null);
+    const [users, setUsers] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [conversations, setConversations] = useState([]);
+    const [notifications, setNotifications] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [currentUser, setCurrentUser] = useState(null); // null = not logged in
-
-    const [users, setUsers] = useState([
-        { id: 'u1', name: 'Liam Designs', handle: '@liam_designs', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA1iYduTiyUnzvTvDELoskoTZxAMb0rS1BB-DyuIC0qOWXr9praYvezjUvDZBNOu48kElCYga1c56os9usneCpIGSp5gduEx21hV4gFiuEbYT23v8qInmEvFm6smgt0eTnILGarudbqW0PTU969kJAf0d_XRNqTcZ2PX5JTXfSUX4QdSjzuXxvpmOjWx9_-mAbolyrS9pwQbHvhRocAcwWVpMcKqIHY_G0WldNgC1Gma_mgAWq9I116ffVveDRcDm04rAjHJvpmetD8', isFollowing: false },
-        { id: 'u2', name: 'Olivia Codes', handle: '@olivia_codes', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA6uIYfXF1Z_lt71vGsOksTBB-5FTb-naLi7OgqA1kI7O_eZoNf3OXowRQKNDjB3sUspW3o8P09N81A31WH6UJJwA4zKKHJrf2tqjxYOWhxvsNs-r3QNZ8zDG9PrHcDM_QdPD-udXcdwqoaEX9dkW_Tmy7JUDV09TVPQG2H_XZinny61B1k3wRRMAVX2z-Qo5ELw5sBoPUj4e4EEDWXUTYfELvctAEwaOj2Mf2GU5an-FJvYKpY5AWwWtZHdyaL9e3iRAuCF0vE6nRV', isFollowing: false },
-        { id: 'u3', name: 'Noah Art', handle: '@noah_art', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWCMnpx72MPJTfTL8izdPBqG24HCXJ-M7nf7Uelnfeqmdf_92anzn8_O8MViZ4sqMN0Cf6km1Rcpw9IHiylNdhTapH1DKcHchcnrJhlSl13XHEoZpv-nPxDUKbHuxL6zH3vLkfHmgUvQOod5tfTIhytj1jBbDEoqEjHDYD1Ws287qaAVHQaLAKYtsEldqh5-R-o0-lvHndurY97eGVA2flO6SHPwJGJPCU5fo6IKhbg9IBhVXH524yKJXHYdr-xpoeeWSDlMx2Qbsf', isFollowing: false },
-        { id: 'u4', name: 'Sophia Chen', handle: '@sophiachen', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXci3pwhqRRqvK438EZjalQqJA9IHl55VxD0ggO5VzE0aT9KbVuHZagFwvTCEkZ_U6CegGCyM_uxtK3UIbQB5VXByhv3qOVUeEwSlF6g05zfj25TRQ_MOp238QlYS3BNuvJYONFBaRqKmABGpGob5XTxFoL5o3RZ3uR7-em8K9_IJsGoN-6CnugOylyWIBgnr2sykiYxJ6tWragp_8T0y0U5CKtm7CYMTDBvTnGh7NBIC01_LWpEZTxC2ELTY_3C6e4VX7RhVtlXTc', isFollowing: false }
-    ]);
-
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            author: { name: 'Olivia Wilson', handle: '@olivia_w', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBv2oHCupr_M10jx-2Ka54_SeU_ekCDAxpNkmJhdVrIEVkN1pJ6ZOkLktu5stZFyLpr13PVlBJQQqS5yR_2vVa6QTDK0n9ghsF7KXOpDhpNDEOQu9vFM-l3oP6H4rxw6C-OiRA4km52p_lxGH80kfS00PYmZkt9PNJiJVDu6FPt48ycvs1dRLd3pv_zN7OVT1duOZiPgjuifpCpCf4xFukD9WM5HXt9ED6U7B1WhGjyzdqFBcXep6CPSMqEr1au6eTyiqeTpvtaVjz7' },
-            time: 'il y a 2 heures',
-            content: "Je profite juste du magnifique coucher de soleil aujourd'hui ! Je me sens tellement reconnaissante pour des moments comme ceux-ci. #sunset #grateful",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5G1BedjcAY76ZKGAgKITkpDpRJzH3di4iwP7ENEGWOIbLWpsFSX6To0K49l7UsJTYiZpeR4di0YrPeMegZ7TDhfJXkj546ftssOTx0FhpKl3PO1cuKA22_jk74jfsyGK0ybUo6WUw-34TkS2s9-1yOyArwWE3Pi5d6i_Q9o2Svp2Nrz1ZdpXX6oGP0uziQ_EKXl9Mm7XInN6xQ9j1OwGfH7rFbnbpHNexQpXF69WOSxuW63K391tr23QN1agTAxshy7eMkBVhhn_r",
-            likes: 1200,
-            comments: 89,
-            shares: 45,
-            isLiked: false,
-            isBookmarked: false
-        },
-        {
-            id: 2,
-            author: { name: 'Noah Carter', handle: '@noah_carter', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBLZ5DVWPr7Q9ZqkXxAo4h1_Cqf4A7OISL0xN3GptFW9h-z4h34h0v24n0isdWs7XIzKHiePrqcnamjPMprQcdGL0J5p37CQBWaQrQXZ8LMx-G7BXbyfFbcZ7NY9atvguOj7-EptgosRJYR9MlNBr5cIW7wk2yRqSc_mShZqtWLMznr0zyYmR-pQjYdby5fzSKZJ4rH8REE2MMHr33oqBFkI6YqR4DLc3ZMv4t2CLbeyGw5fRtbdRyffYbgREI29UhcnHeQUL5clkEd' },
-            time: 'il y a 5 heures',
-            content: "Le nouvel article de blog est en ligne ! Découvrez mes réflexions sur les dernières tendances design pour 2024. Lien en bio ! #design #webdesign #trends",
-            image: null,
-            likes: 567,
-            comments: 32,
-            shares: 12,
-            isLiked: false,
-            isBookmarked: false
-        }
-    ]);
-
-    const [conversations, setConversations] = useState([
-        {
-            id: 'c1',
-            user: { name: 'Liam Designs', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA1iYduTiyUnzvTvDELoskoTZxAMb0rS1BB-DyuIC0qOWXr9praYvezjUvDZBNOu48kElCYga1c56os9usneCpIGSp5gduEx21hV4gFiuEbYT23v8qInmEvFm6smgt0eTnILGarudbqW0PTU969kJAf0d_XRNqTcZ2PX5JTXfSUX4QdSjzuXxvpmOjWx9_-mAbolyrS9pwQbHvhRocAcwWVpMcKqIHY_G0WldNgC1Gma_mgAWq9I116ffVveDRcDm04rAjHJvpmetD8', status: 'online' },
-            lastMessage: "Bien sûr, je peux envoyer les fichiers plus tard dans la journée.",
-            time: "2m",
-            unread: 0,
-            messages: [
-                { id: 1, text: "Hé ! Comment avance le projet ?", sender: 'other', time: "10:30 AM" },
-                { id: 2, text: "Ça avance super bien ! Je viens de finir la mise en page principale.", sender: 'me', time: "10:32 AM" },
-                { id: 3, text: "C'est génial ! Peux-tu m'envoyer les fichiers plus tard aujourd'hui ?", sender: 'other', time: "10:33 AM" },
-                { id: 4, text: "Bien sûr, je peux t'envoyer les fichiers plus tard.", sender: 'me', time: "10:35 AM" }
-            ]
-        },
-        {
-            id: 'c2',
-            user: { name: 'Olivia Codes', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA6uIYfXF1Z_lt71vGsOksTBB-5FTb-naLi7OgqA1kI7O_eZoNf3OXowRQKNDjB3sUspW3o8P09N81A31WH6UJJwA4zKKHJrf2tqjxYOWhxvsNs-r3QNZ8zDG9PrHcDM_QdPD-udXcdwqoaEX9dkW_Tmy7JUDV09TVPQG2H_XZinny61B1k3wRRMAVX2z-Qo5ELw5sBoPUj4e4EEDWXUTYfELvctAEwaOj2Mf2GU5an-FJvYKpY5AWwWtZHdyaL9e3iRAuCF0vE6nRV', status: 'offline' },
-            lastMessage: "As-tu vu la nouvelle mise à jour ?",
-            time: "1h",
-            unread: 1,
-            messages: [
-                { id: 1, text: "Salut ! Tu as vu le nouveau framework ?", sender: 'other', time: "09:00 AM" }
-            ]
-        }
-    ]);
-
-    const [notifications, setNotifications] = useState([
-        { id: 1, type: 'like', user: 'Sophia Chen', text: 'a aimé votre photo.', time: 'il y a 30 min', read: false },
-        { id: 2, type: 'follow', user: 'Liam Miller', text: 'vous a suivi.', time: 'il y a 10 min', read: false },
-        { id: 3, type: 'comment', user: 'Noah Carter', text: 'a commenté : "Superbes idées !"', time: 'il y a 1h', read: true },
-        { id: 4, type: 'mention', user: 'Ava Garcia', text: 'vous a mentionné dans un post.', time: 'il y a 2h', read: true }
-    ]);
-
-    // --- Actions ---
-
-    const login = (userData) => {
-        // Simulate API call
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                const user = {
-                    name: 'Jane Doe',
-                    handle: '@janedoe',
-                    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAVKAP-N51JKRv4siJBUiRmGuBd-W9Kj6aSOmyQxQU5pWQ5T5-kzqWuSOUnMiC5oPONC6T5xpHqLXxBmMjd-X0D20nCRUmBY0yrylaamyNpc-qvy7FRzLER-_mEXlny6LvC5xS4_ixlHWmaiYrbKHxo3oXzBCGubh4ubdgEvfuhEbB1qOZi2yn8E9uMhVI2SJ8Er2C2WvIsvry9K8Q7k7-L6vPSHIr0Cb52JMsiRArhYKPOjdfo-QS53t3UcK5n1lo6gu0ij3kVJTfZ'
-                };
-                setCurrentUser(user);
-                resolve(user);
-            }, 800);
-        });
-    };
-
-    const logout = () => setCurrentUser(null);
-
-    const addPost = (content, image) => {
-        const newPost = {
-            id: Date.now(),
-            author: currentUser || { name: 'Invité', handle: '@guest', avatar: '' }, // Fallback if not logged in for demo
-            time: 'À l\'instant',
-            content,
-            image,
-            likes: 0,
-            comments: 0,
-            shares: 0,
-            isLiked: false,
-            isBookmarked: false
+    // Initial Data Fetch
+    useEffect(() => {
+        const loadInitialData = async () => {
+            setIsLoading(true);
+            try {
+                // Determine if user is "logged in" by checking localStorage or just default null
+                // For this demo, we can assume no user initially, or check a "token"
+                // Let's load generic data first
+                const [usersData, postsData, notifsData] = await Promise.all([
+                    mockApi.users.list(),
+                    mockApi.posts.list(),
+                    mockApi.notifications.list()
+                ]);
+                
+                setUsers(usersData);
+                setPosts(postsData);
+                setNotifications(notifsData);
+            } catch (error) {
+                console.error("Failed to load data", error);
+            } finally {
+                setIsLoading(false);
+            }
         };
-        setPosts([newPost, ...posts]);
+        loadInitialData();
+    }, []);
+
+    // Load conversations only when user is logged in
+    useEffect(() => {
+        if (currentUser) {
+            mockApi.messages.list().then(setConversations);
+        } else {
+            setConversations([]);
+        }
+    }, [currentUser]);
+
+    // --- Actions Wrappers ---
+
+    const login = async (credentials) => {
+        const user = await mockApi.auth.login(credentials);
+        setCurrentUser(user);
+        return user;
     };
 
-    const toggleLike = (postId) => {
-        setPosts(posts.map(post => {
+    const signup = async (userData) => {
+        const user = await mockApi.auth.signup(userData);
+        setCurrentUser(user);
+        return user;
+    };
+
+    const logout = async () => {
+        setCurrentUser(null);
+    };
+
+    const addPost = async (content, image) => {
+        const newPost = await mockApi.posts.create(content, image);
+        setPosts(prev => [newPost, ...prev]);
+    };
+
+    const toggleLike = async (postId) => {
+        await mockApi.posts.toggleLike(postId);
+        setPosts(prev => prev.map(post => {
             if (post.id === postId) {
                 return {
                     ...post,
@@ -124,52 +87,63 @@ export const DataProvider = ({ children }) => {
         }));
     };
 
-    const toggleBookmark = (postId) => {
-        setPosts(posts.map(post => {
+    const addComment = async (postId, text) => {
+        const newComment = await mockApi.posts.addComment(postId, text);
+        setPosts(prev => prev.map(post => {
             if (post.id === postId) {
-                return { ...post, isBookmarked: !post.isBookmarked };
+                return {
+                    ...post,
+                    comments: [...(post.comments || []), newComment]
+                };
             }
             return post;
         }));
     };
 
-    const toggleFollow = (userId) => {
-        setUsers(users.map(user => {
-            if (user.id === userId) {
-                return { ...user, isFollowing: !user.isFollowing };
-            }
-            return user;
-        }));
+    const toggleBookmark = (postId) => {
+        // Optimistic update
+        setPosts(prev => prev.map(post => 
+            post.id === postId ? { ...post, isBookmarked: !post.isBookmarked } : post
+        ));
     };
 
-    const sendMessage = (conversationId, text) => {
-        setConversations(conversations.map(conv => {
-            if (conv.id === conversationId) {
-                const newMessage = {
-                    id: Date.now(),
-                    text,
-                    sender: 'me',
-                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                };
+    const toggleFollow = async (userId) => {
+        await mockApi.users.toggleFollow(userId);
+        // Update users list
+        setUsers(prev => prev.map(u => 
+            u.id === userId ? { ...u, isFollowing: !u.isFollowing } : u
+        ));
+        // Also update posts author if needed, or handle visually in components
+        // For simplified demo, we just update the user entity
+    };
+
+    const sendMessage = async (conversationId, text) => {
+        // Optimistic UI update or wait for mock response
+        const newMessage = await mockApi.messages.send(conversationId, text);
+        setConversations(prev => prev.map(c => {
+            if (c.id === conversationId) {
                 return {
-                    ...conv,
-                    messages: [...conv.messages, newMessage],
+                    ...c,
+                    messages: [...c.messages, newMessage],
                     lastMessage: text,
-                    time: 'Maintenant'
+                    time: "Now"
                 };
             }
-            return conv;
+            return c;
         }));
+        return newMessage;
     };
 
-    const markNotificationRead = (notificationId) => {
-        if (notificationId === 'all') {
-            setNotifications(notifications.map(n => ({ ...n, read: true })));
-        } else {
-            setNotifications(notifications.map(n =>
-                n.id === notificationId ? { ...n, read: true } : n
-            ));
-        }
+    const markNotificationRead = async (notificationId) => {
+        await mockApi.notifications.markRead(notificationId);
+        setNotifications(prev => prev.map(n => 
+            n.id === notificationId ? { ...n, read: true } : n
+        ));
+    };
+
+    const markAllNotificationsRead = async () => {
+        // mock API call for batch update could be added
+        setNotifications(prev => prev.map(n => ({ ...n, read: true })));
     };
 
     const value = {
