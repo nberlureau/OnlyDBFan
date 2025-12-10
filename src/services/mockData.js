@@ -6,12 +6,15 @@ export const mockUsers = [
 ];
 
 export const mockCurrentUser = {
-    id: 'current',
-    name: 'Jane Doe',
-    handle: '@janedoe',
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAVKAP-N51JKRv4siJBUiRmGuBd-W9Kj6aSOmyQxQU5pWQ5T5-kzqWuSOUnMiC5oPONC6T5xpHqLXxBmMjd-X0D20nCRUmBY0yrylaamyNpc-qvy7FRzLER-_mEXlny6LvC5xS4_ixlHWmaiYrbKHxo3oXzBCGubh4ubdgEvfuhEbB1qOZi2yn8E9uMhVI2SJ8Er2C2WvIsvry9K8Q7k7-L6vPSHIr0Cb52JMsiRArhYKPOjdfo-QS53t3UcK5n1lo6gu0ij3kVJTfZ',
-    bio: 'Traveler & Tech Enthusiast 🌍 | Sharing moments & code.',
-    website: 'janedoe.dev'
+    id: 'user-1',
+    name: 'Sofia Chen',
+    username: 'sofiachen',
+    handle: '@sofiachen',
+    email: 'demo@example.com',
+    password: 'password',
+    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXci3pwhqRRqvK438EZjalQqJA9IHl55VxD0ggO5VzE0aT9KbVuHZagFwvTCEkZ_U6CegGCyM_uxtK3UIbQB5VXByhv3qOVUeEwSlF6g05zfj25TRQ_MOp238QlYS3BNuvJYONFBaRqKmABGpGob5XTxFoL5o3RZ3uR7-em8K9_IJsGoN-6CnugOylyWIBgnr2sykiYxJ6tWragp_8T0y0U5CKtm7CYMTDBvTnGh7NBIC01_LWpEZTxC2ELTY_3C6e4VX7RhVtlXTc',
+    bio: 'Digital Artist & Developer 🎨 | Creating mockups & dreams',
+    website: 'sofiachen.dev'
 };
 
 export const mockPosts = [

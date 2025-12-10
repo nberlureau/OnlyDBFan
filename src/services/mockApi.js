@@ -9,9 +9,10 @@ export const mockApi = {
     auth: {
         login: async (credentials) => {
             await delay(LATENCY);
-            // Simulate check, for now always succeed with mockCurrentUser
-            // In a real mock, we could check credentials.email === 'demo@example.com'
-            return { ...mockCurrentUser };
+            if (credentials.email === mockCurrentUser.email && credentials.password === mockCurrentUser.password) {
+                return { ...mockCurrentUser };
+            }
+            throw new Error("Identifiants incorrects (Essayez: demo@example.com / password)");
         },
         signup: async (userData) => {
             await delay(LATENCY);

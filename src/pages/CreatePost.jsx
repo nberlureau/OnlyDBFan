@@ -8,10 +8,13 @@ export default function CreatePost() {
     const [content, setContent] = useState('');
     const [privacy, setPrivacy] = useState('Public');
     const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+    const [hasMedia, setHasMedia] = useState(false);
+    const [showDraftToast, setShowDraftToast] = useState(false);
+
+    const togglePrivacy = () => setIsPrivacyOpen(!isPrivacyOpen);
 
     const handlePublish = () => {
         if (!content.trim()) return;
-        addPost(content, null); // Image handling mock or null for now
         const image = hasMedia ? "https://source.unsplash.com/random/800x600?nature" : null;
         addPost(content, image);
         navigate('/');

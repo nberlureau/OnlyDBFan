@@ -38,6 +38,13 @@ export default function Messages() {
         setMessageText('');
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSendMessage(e);
+        }
+    };
+
     const handleNewConversation = () => {
         // Mock action
         alert("Fonctionnalité 'Nouvelle conversation' simulée : Cela ouvrirait une liste d'utilisateurs.");
@@ -96,8 +103,8 @@ export default function Messages() {
                             <span className="material-symbols-outlined">add_circle</span>
                         </button>
                         <textarea
-                            value={messageInput}
-                            onChange={(e) => setMessageInput(e.target.value)}
+                            value={messageText}
+                            onChange={(e) => setMessageText(e.target.value)}
                             onKeyDown={handleKeyDown}
                             className="flex-1 bg-transparent border-none resize-none max-h-32 min-h-[44px] py-2.5 focus:ring-0 text-gray-900 dark:text-white/90 placeholder:text-gray-500 dark:placeholder:text-white/40"
                             placeholder="Écrivez un message..." rows="1"></textarea>
@@ -106,7 +113,7 @@ export default function Messages() {
                         </button>
                         <button
                             onClick={handleSendMessage}
-                            disabled={!messageInput.trim()}
+                            disabled={!messageText.trim()}
                             className="p-2 rounded-full bg-primary text-white shadow-md hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                             <span className="material-symbols-outlined">send</span>
                         </button>
