@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo_sombre.png';
+import { useData } from '../context/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const { login } = useData();
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [email, setEmail] = useState('demo@example.com');
+    const [password, setPassword] = useState('password');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+            await login({ email, password });
+            navigate('/');
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <div className="font-display bg-[#050816] text-gray-100 min-h-screen flex items-center justify-center p-4 md:p-8">
             {/* Main Card Container */}
@@ -71,13 +92,15 @@ export default function Login() {
                             <p className="text-gray-400 text-lg">Please enter your details to sign in.</p>
                         </div>
 
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleLogin}>
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-gray-300 ml-1">Email Address</label>
                                 <div className="relative group">
                                     <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors">mail</span>
                                     <input
                                         type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Enter your email"
                                         className="w-full pl-12 pr-4 py-4 rounded-xl bg-[#0a0e17] border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white font-medium placeholder:text-gray-600 transition-all outline-none shadow-inner"
                                     />
@@ -90,6 +113,8 @@ export default function Login() {
                                     <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors">lock</span>
                                     <input
                                         type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         placeholder="••••••••"
                                         className="w-full pl-12 pr-12 py-4 rounded-xl bg-[#0a0e17] border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white font-medium placeholder:text-gray-600 transition-all outline-none shadow-inner"
                                     />
@@ -108,11 +133,11 @@ export default function Login() {
                                     </div>
                                     <span className="text-sm font-medium text-gray-400 group-hover:text-gray-300 transition-colors">Remember me</span>
                                 </label>
-                                <a href="#" className="text-sm font-bold text-primary hover:text-pink-400 transition-colors">Forgot password?</a>
+                                <button type="button" onClick={() => alert("Fonctionnalité 'Mot de passe oublié' à venir !")} className="text-sm font-bold text-primary hover:text-pink-400 transition-colors bg-transparent border-none">Forgot password?</button>
                             </div>
 
-                            <button type="button" className="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 text-white text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border-none mt-4">
-                                Sign In
+                            <button type="submit" disabled={isLoading} className="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 text-white text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border-none mt-4 disabled:opacity-70 disabled:cursor-not-allowed">
+                                {isLoading ? 'Signing In...' : 'Sign In'}
                             </button>
                         </form>
 
@@ -126,11 +151,11 @@ export default function Login() {
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
-                            <button className="flex items-center justify-center gap-3 py-3.5 rounded-xl border border-white/10 bg-[#0a0e17] hover:bg-white/5 hover:border-white/20 transition-all font-bold text-gray-300 hover:text-white group">
+                            <button onClick={() => alert("Connexion Google simulée")} className="flex items-center justify-center gap-3 py-3.5 rounded-xl border border-white/10 bg-[#0a0e17] hover:bg-white/5 hover:border-white/20 transition-all font-bold text-gray-300 hover:text-white group">
                                 <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-6 h-6 group-hover:scale-110 transition-transform" alt="Google" />
                                 Google
                             </button>
-                            <button className="flex items-center justify-center gap-3 py-3.5 rounded-xl border border-white/10 bg-[#0a0e17] hover:bg-white/5 hover:border-white/20 transition-all font-bold text-gray-300 hover:text-white group">
+                            <button onClick={() => alert("Connexion Apple simulée")} className="flex items-center justify-center gap-3 py-3.5 rounded-xl border border-white/10 bg-[#0a0e17] hover:bg-white/5 hover:border-white/20 transition-all font-bold text-gray-300 hover:text-white group">
                                 <img src="https://www.svgrepo.com/show/475647/apple-color.svg" className="w-6 h-6 invert group-hover:scale-110 transition-transform" alt="Apple" />
                                 Apple
                             </button>

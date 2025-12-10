@@ -1,7 +1,15 @@
 import React from 'react';
+import { useData } from '../context/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
+    const { users, toggleFollow, currentUser } = useData();
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = React.useState('posts');
+
+    // For demo purposes, we'll display "Sophia Chen" (u4) as the profile being viewed
+    // unless it's the current user, but for now let's simulate viewing another profile
+    const profileUser = users.find(u => u.handle === '@sophiachen') || users[0];
 
     return (
         <div className="font-display bg-transparent text-gray-100 min-h-screen flex">
@@ -23,7 +31,7 @@ export default function Profile() {
                         <div className="flex items-end gap-6">
                             <div className="relative">
                                 <div className="size-40 rounded-full border-4 border-[#050816] bg-cover bg-center shadow-xl"
-                                    style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZkwNiRr_iqCmaOwqnbN7hPCzYh6Z4dlpe1XTS0TZkJlkFhYIjNNOxWnAbpSI709DieQ-UmcA2YNnmQvwXYZC2FqIk80g-AbQSk1eImNMINiLXke1AagDJfXoX3vjgcPLQybwWReohi7inqZHvFVZ37tthDe-NCJ8fpprRQNwhxSxJxPB2j6eWvsswKITTx23Jwm-lcbCymFr2tXZY65rdRd_nxeilXy7azJ29aLCExr9TT5MvAmV5CprjrQBCxyAk0qBOm_JfuAYg")' }}>
+                                    style={{ backgroundImage: `url("${profileUser.avatar}")` }}>
                                 </div>
                                 <button className="absolute bottom-2 right-2 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform">
                                     <span className="material-symbols-outlined text-xl">add_a_photo</span>
@@ -31,16 +39,27 @@ export default function Profile() {
                             </div>
                             <div className="mb-4">
                                 <h1 className="text-3xl font-bold text-[#1c0d11] dark:text-white/90 flex items-center gap-2">
-                                    Sofia Chen
+                                    {profileUser.name}
                                     <span className="material-symbols-outlined text-blue-500 text-2xl" title="Verified">verified</span>
                                 </h1>
-                                <p className="text-[#9c4962] dark:text-white/60 font-medium text-lg">@sofiachen</p>
+                                <p className="text-[#9c4962] dark:text-white/60 font-medium text-lg">{profileUser.handle}</p>
                                 <p className="text-black/80 dark:text-white/80 mt-2 max-w-md">Digital Artist & UI Designer 🎨 | Creating visual experiences that matter. 📍 San Francisco</p>
                             </div>
                         </div>
                         <div className="flex gap-3 mb-4">
-                            <button className="px-6 py-2.5 rounded-lg border-2 border-black/10 dark:border-white/10 font-bold text-[#1c0d11] dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Envoyer un message</button>
-                            <button className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Suivre</button>
+                            <button
+                                onClick={() => navigate('/messages')}
+                                className="px-6 py-2.5 rounded-lg border-2 border-black/10 dark:border-white/10 font-bold text-[#1c0d11] dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                                Envoyer un message
+                            </button>
+                            <button
+                                onClick={() => toggleFollow(profileUser.id)}
+                                className={`px-6 py-2.5 rounded-lg font-bold shadow-lg transition-colors ${profileUser.isFollowing
+                                    ? 'bg-transparent border-2 border-primary text-primary hover:bg-primary/10'
+                                    : 'bg-primary text-white hover:bg-primary/90 shadow-primary/30'
+                                    }`}>
+                                {profileUser.isFollowing ? 'Abonné' : 'Suivre'}
+                            </button>
                         </div>
                     </div>
 
