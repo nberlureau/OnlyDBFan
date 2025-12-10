@@ -4,22 +4,41 @@ import { useData } from '../context/DataContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-    const { login } = useData();
+    const { login, signup } = useData();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const [isLoginMode, setIsLoginMode] = useState(true);
     const [email, setEmail] = useState('demo@example.com');
     const [password, setPassword] = useState('password');
+    const [name, setName] = useState('');
 
-    const handleLogin = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await login({ email, password });
+            if (isLoginMode) {
+                await login({ email, password });
+            } else {
+                await signup({ email, password, name });
+            }
             navigate('/');
         } catch (error) {
             console.error(error);
+            alert("Erreur d'authentification (Simulation: Vérifiez la console)");
         } finally {
             setIsLoading(false);
+        }
+    };
+
+    const toggleMode = () => {
+        setIsLoginMode(!isLoginMode);
+        // Reset defaults for demo convenience
+        if (isLoginMode) { // Switching to Signup
+            setEmail('');
+            setPassword('');
+        } else { // Switching back to Login
+            setEmail('demo@example.com');
+            setPassword('password');
         }
     };
 
@@ -51,8 +70,8 @@ export default function Login() {
                                 <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-md">OnlyDBFan</h1>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 drop-shadow-lg">
-                                Connectez, Créez, <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-pink-200">Inspirez.</span>
+                                {isLoginMode ? "Connectez, Créez," : "Rejoignez-nous,"} <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-pink-200">{isLoginMode ? "Inspirez." : "Brillez."}</span>
                             </h2>
                             <p className="text-lg text-white/90 font-medium max-w-md leading-relaxed drop-shadow-md">
                                 Rejoignez la communauté de référence pour les créateurs. Partagez votre passion, développez votre audience et monétisez votre contenu avec style.
@@ -88,11 +107,27 @@ export default function Login() {
                 <div className="w-full md:w-[55%] p-8 md:p-16 flex flex-col justify-center bg-[#151a30] relative">
                     <div className="max-w-md mx-auto w-full relative z-10">
                         <div className="mb-10">
-                            <h2 className="text-4xl font-bold text-white mb-3">Welcome Back</h2>
-                            <p className="text-gray-400 text-lg">Please enter your details to sign in.</p>
+                            <h2 className="text-4xl font-bold text-white mb-3">{isLoginMode ? "Welcome Back" : "Create Account"}</h2>
+                            <p className="text-gray-400 text-lg">{isLoginMode ? "Please enter your details to sign in." : "Start your journey within seconds."}</p>
                         </div>
 
-                        <form className="space-y-6" onSubmit={handleLogin}>
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            {!isLoginMode && (
+                                <div className="space-y-2 animate-fade-in">
+                                    <label className="text-sm font-bold text-gray-300 ml-1">Full Name</label>
+                                    <div className="relative group">
+                                        <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors">person</span>
+                                        <input
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder="John Doe"
+                                            className="w-full pl-12 pr-4 py-4 rounded-xl bg-[#0a0e17] border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white font-medium placeholder:text-gray-600 transition-all outline-none shadow-inner"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-gray-300 ml-1">Email Address</label>
                                 <div className="relative group">
@@ -133,11 +168,13 @@ export default function Login() {
                                     </div>
                                     <span className="text-sm font-medium text-gray-400 group-hover:text-gray-300 transition-colors">Remember me</span>
                                 </label>
-                                <button type="button" onClick={() => alert("Fonctionnalité 'Mot de passe oublié' à venir !")} className="text-sm font-bold text-primary hover:text-pink-400 transition-colors bg-transparent border-none">Forgot password?</button>
+                                {isLoginMode && (
+                                    <button type="button" onClick={() => alert("Fonctionnalité 'Mot de passe oublié' à venir !")} className="text-sm font-bold text-primary hover:text-pink-400 transition-colors bg-transparent border-none">Forgot password?</button>
+                                )}
                             </div>
 
                             <button type="submit" disabled={isLoading} className="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 text-white text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border-none mt-4 disabled:opacity-70 disabled:cursor-not-allowed">
-                                {isLoading ? 'Signing In...' : 'Sign In'}
+                                {isLoading ? (isLoginMode ? 'Signing In...' : 'Creating Account...') : (isLoginMode ? 'Sign In' : 'Sign Up')}
                             </button>
                         </form>
 
@@ -162,7 +199,10 @@ export default function Login() {
                         </div>
 
                         <p className="mt-10 text-center text-gray-400">
-                            Don't have an account? <a href="#" className="font-bold text-primary hover:text-pink-400 transition-colors ml-1">Sign up</a>
+                            {isLoginMode ? "Don't have an account?" : "Already have an account?"}
+                            <button onClick={toggleMode} className="font-bold text-primary hover:text-pink-400 transition-colors ml-1 bg-transparent border-none cursor-pointer">
+                                {isLoginMode ? "Sign up" : "Sign in"}
+                            </button>
                         </p>
                     </div>
                 </div>

@@ -159,7 +159,9 @@ export const DataProvider = ({ children }) => {
         toggleBookmark,
         toggleFollow,
         sendMessage,
-        markNotificationRead
+        markNotificationRead,
+        markAllNotificationsRead,
+        signup
     };
 
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
