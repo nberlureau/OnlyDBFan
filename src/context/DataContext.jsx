@@ -1,4 +1,4 @@
-```javascript
+
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { mockApi } from '../services/mockApi';
 
@@ -28,7 +28,7 @@ export const DataProvider = ({ children }) => {
                     mockApi.posts.list(),
                     mockApi.notifications.list()
                 ]);
-                
+
                 setUsers(usersData);
                 setPosts(postsData);
                 setNotifications(notifsData);
@@ -102,7 +102,7 @@ export const DataProvider = ({ children }) => {
 
     const toggleBookmark = (postId) => {
         // Optimistic update
-        setPosts(prev => prev.map(post => 
+        setPosts(prev => prev.map(post =>
             post.id === postId ? { ...post, isBookmarked: !post.isBookmarked } : post
         ));
     };
@@ -110,7 +110,7 @@ export const DataProvider = ({ children }) => {
     const toggleFollow = async (userId) => {
         await mockApi.users.toggleFollow(userId);
         // Update users list
-        setUsers(prev => prev.map(u => 
+        setUsers(prev => prev.map(u =>
             u.id === userId ? { ...u, isFollowing: !u.isFollowing } : u
         ));
         // Also update posts author if needed, or handle visually in components
@@ -136,7 +136,7 @@ export const DataProvider = ({ children }) => {
 
     const markNotificationRead = async (notificationId) => {
         await mockApi.notifications.markRead(notificationId);
-        setNotifications(prev => prev.map(n => 
+        setNotifications(prev => prev.map(n =>
             n.id === notificationId ? { ...n, read: true } : n
         ));
     };

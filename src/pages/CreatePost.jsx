@@ -99,7 +99,9 @@ export default function CreatePost() {
                                 </div>
                             </div>
                         </div>
-                    </main>
+                    </div>
                 </div>
-                );
+            </main>
+        </div>
+    );
 }

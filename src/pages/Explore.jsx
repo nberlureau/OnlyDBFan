@@ -36,133 +36,132 @@ export default function Explore() {
     return (
         <div className="font-display bg-transparent text-gray-900 dark:text-gray-100 h-screen w-full flex flex-col overflow-hidden relative">
             <div className="flex h-full w-full">
-                <div className="flex flex-1">
-                    {/* Main Content */}
-                    <main className="flex-1 overflow-y-auto">
-                        <div className="mx-auto max-w-4xl px-8 py-6">
-                            {/* Top Bar with Search */}
-                            <header className="flex h-12 items-center justify-between pb-6">
-                                <h2 className="text-gray-900 dark:text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explorer
-                                </h2>
-                                <div className="flex items-center gap-4">
-                                    <button
-                                        className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white/90 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
-                                        <div className="font-display bg-transparent text-gray-900 dark:text-gray-100 min-h-screen">
-                                            <div className="flex-1">
-                                                <main className="grid grid-cols-12 gap-8 px-8 py-6">
-                                                    {/* Main Feed / Grid */}
-                                                    <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
+                <main className="flex-1 overflow-y-auto">
+                    <div className="mx-auto max-w-6xl px-4 md:px-8 py-6">
+                        {/* Top Bar */}
+                        <header className="flex h-12 items-center justify-between pb-6">
+                            <h2 className="text-gray-900 dark:text-white/90 text-2xl font-bold leading-tight tracking-[-0.015em]">Explorer</h2>
+                            <div className="flex items-center gap-4">
+                                <button className="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+                                    <span className="material-symbols-outlined">settings</span>
+                                </button>
+                            </div>
+                        </header>
 
-                                                        {/* Search Bar */}
-                                                        <div className="relative">
-                                                            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-                                                            <input
-                                                                type="text"
-                                                                value={searchQuery}
-                                                                onChange={(e) => setSearchQuery(e.target.value)}
-                                                                placeholder="Rechercher des créateurs, des posts..."
-                                                                className="w-full pl-12 pr-4 py-3 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus:ring-2 focus:ring-primary-home/50 outline-none transition-all dark:text-white dark:placeholder:text-gray-500"
-                                                            />
-                                                        </div>
+                        <div className="grid grid-cols-12 gap-8">
+                            {/* Main Feed / Grid */}
+                            <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
 
-                                                        {/* Tabs */}
-                                                        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                                                            {tabs.map((tab) => (
-                                                                <button
-                                                                    key={tab}
-                                                                    onClick={() => setActiveTab(tab)}
-                                                                    className={`px-5 py-2 rounded-full font-medium whitespace-nowrap transition-colors ${activeTab === tab
-                                                                            ? 'bg-black text-white dark:bg-white dark:text-black'
-                                                                            : 'bg-white dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10'
-                                                                        }`}
-                                                                >
-                                                                    {tab}
-                                                                </button>
-                                                            ))}
-                                                        </div>
+                                {/* Search Bar */}
+                                <div className="relative">
+                                    <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                                    <input
+                                        type="text"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        placeholder="Rechercher des créateurs, des posts..."
+                                        className="w-full pl-12 pr-4 py-3 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus:ring-2 focus:ring-primary-home/50 outline-none transition-all dark:text-white dark:placeholder:text-gray-500"
+                                    />
+                                </div>
 
-                                                        {/* Content Grid */}
-                                                        <div className={activeTab === 'Comptes' ? "flex flex-col gap-4" : "columns-2 md:columns-3 gap-4 space-y-4"}>
-                                                            {activeTab === 'Comptes' ? (
-                                                                filteredContent.length > 0 ? (
-                                                                    filteredContent.map(user => (
-                                                                        <div key={user.id} className="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
-                                                                            <div className="flex items-center gap-4">
-                                                                                <img src={user.avatar} alt={user.name} className="size-12 rounded-full object-cover" />
-                                                                                <div>
-                                                                                    <h3 className="font-bold text-gray-900 dark:text-white">{user.name}</h3>
-                                                                                    <p className="text-gray-500 dark:text-gray-400 text-sm">{user.handle}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                            <button
-                                                                                onClick={() => toggleFollow(user.id)}
-                                                                                className={`px-4 py-1.5 rounded-full font-bold text-sm transition-colors ${user.isFollowing
-                                                                                        ? 'border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300'
-                                                                                        : 'bg-primary-home text-white hover:opacity-90'
-                                                                                    }`}>
-                                                                                {user.isFollowing ? 'Abonné' : 'Suivre'}
-                                                                            </button>
-                                                                        </div>
-                                                                    ))
-                                                                ) : (
-                                                                    <p className="text-center text-gray-500 mt-8">Aucun compte trouvé.</p>
-                                                                )
-                                                            ) : (
-                                                                filteredContent.length > 0 ? (
-                                                                    filteredContent.map((post) => (
-                                                                        <div key={post.id} className="break-inside-avoid mb-4 relative group cursor-pointer rounded-xl overflow-hidden">
-                                                                            {post.image ? (
-                                                                                <img src={post.image} alt="Post" className="w-full h-auto rounded-xl transform group-hover:scale-105 transition-transform duration-300" />
-                                                                            ) : (
-                                                                                <div className="w-full p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
-                                                                                    <p className="text-gray-900 dark:text-white font-medium line-clamp-4">{post.content}</p>
-                                                                                </div>
-                                                                            )}
-                                                                            {/* Hover Overlay */}
-                                                                            {post.image && (
-                                                                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white">
-                                                                                    <div className="flex items-center gap-1">
-                                                                                        <span className="material-symbols-outlined text-sm">favorite</span>
-                                                                                        <span className="font-bold text-sm">{post.likes}</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            )}
-                                                                        </div>
-                                                                    ))
-                                                                ) : (
-                                                                    <div className="col-span-full text-center py-10 text-gray-500">
-                                                                        Aucun résultat pour "{searchQuery || activeTab}"
-                                                                    </div>
-                                                                )
-                                                            )}
+                                {/* Tabs */}
+                                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                    {['Pour vous', 'Top', 'Comptes', 'Photos', 'Vidéos'].map((tab) => (
+                                        <button
+                                            key={tab}
+                                            onClick={() => setActiveTab(tab)}
+                                            className={`px-5 py-2 rounded-full font-medium whitespace-nowrap transition-colors ${activeTab === tab
+                                                ? 'bg-black text-white dark:bg-white dark:text-black'
+                                                : 'bg-white dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10'
+                                                }`}
+                                        >
+                                            {tab}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* Content Grid */}
+                                <div className={activeTab === 'Comptes' ? "flex flex-col gap-4" : "columns-2 md:columns-3 gap-4 space-y-4"}>
+                                    {activeTab === 'Comptes' ? (
+                                        users.filter(u => u.name.toLowerCase().includes(searchTerm.toLowerCase())).length > 0 ? (
+                                            users.filter(u => u.name.toLowerCase().includes(searchTerm.toLowerCase())).map(user => (
+                                                <div key={user.id} className="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
+                                                    <div className="flex items-center gap-4">
+                                                        <img src={user.avatar} alt={user.name} className="size-12 rounded-full object-cover" />
+                                                        <div>
+                                                            <h3 className="font-bold text-gray-900 dark:text-white">{user.name}</h3>
+                                                            <p className="text-gray-500 dark:text-gray-400 text-sm">{user.handle}</p>
                                                         </div>
-                                ))}
                                                     </div>
-                                            </div>
-                                            <div className="bg-white/5 rounded-lg p-4">
-                                                <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Tendances</h3>
-                                                <div className="flex flex-col gap-3">
-                                                    <div onClick={() => setSearchTerm('uidesign')}>
-                                                        <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#uidesign</p>
-                                                        <p className="text-xs text-[#9c4962] dark:text-white/60">125k posts</p>
-                                                    </div>
-                                                    <div onClick={() => setSearchTerm('webdev')}>
-                                                        <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#webdev</p>
-                                                        <p className="text-xs text-[#9c4962] dark:text-white/60">98k posts</p>
-                                                    </div>
-                                                    <div onClick={() => setSearchTerm('digitalart')}>
-                                                        <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#digitalart</p>
-                                                        <p className="text-xs text-[#9c4962] dark:text-white/60">82k posts</p>
-                                                    </div>
-                                                    <div onClick={() => setSearchTerm('inspiration')}>
-                                                        <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#inspiration</p>
-                                                        <p className="text-xs text-[#9c4962] dark:text-white/60">76k posts</p>
+                                                    <button
+                                                        onClick={() => toggleFollow(user.id)}
+                                                        className={`px-4 py-1.5 rounded-full font-bold text-sm transition-colors ${user.isFollowing
+                                                            ? 'border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300'
+                                                            : 'bg-primary-home text-white hover:opacity-90'
+                                                            }`}>
+                                                        {user.isFollowing ? 'Abonné' : 'Suivre'}
+                                                    </button>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p className="text-center text-gray-500 mt-8">Aucun compte trouvé.</p>
+                                        )
+                                    ) : (
+                                        displayItems.length > 0 ? (
+                                            displayItems.map((item) => (
+                                                <div key={item.id} className="break-inside-avoid mb-4 relative group cursor-pointer rounded-xl overflow-hidden">
+                                                    {item.type === 'photo' || item.type === 'video' ? (
+                                                        <img src={item.image} alt={item.alt} className="w-full h-auto rounded-xl transform group-hover:scale-105 transition-transform duration-300" />
+                                                    ) : (
+                                                        <div className="w-full p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
+                                                            <p className="text-gray-900 dark:text-white font-medium line-clamp-4">Post Content Placeholder</p>
+                                                        </div>
+                                                    )}
+                                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white">
+                                                        <div className="flex items-center gap-1">
+                                                            <span className="material-symbols-outlined text-sm">favorite</span>
+                                                            <span className="font-bold text-sm">24</span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            ))
+                                        ) : (
+                                            <div className="col-span-full text-center py-10 text-gray-500 dark:text-gray-400">
+                                                Aucun résultat pour "{searchTerm || activeTab}"
                                             </div>
-                                        </aside>
+                                        )
+                                    )}
                                 </div>
+                            </div>
+
+                            {/* Sidebar / Trends */}
+                            <aside className="hidden lg:block col-span-12 lg:col-span-4 space-y-6">
+                                <div className="bg-white dark:bg-white/5 rounded-2xl p-6 border border-gray-200 dark:border-white/10">
+                                    <h3 className="font-bold text-lg mb-4 text-[#1c0d11] dark:text-white/90">Tendances</h3>
+                                    <div className="flex flex-col gap-3">
+                                        <div onClick={() => setSearchTerm('uidesign')}>
+                                            <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#uidesign</p>
+                                            <p className="text-xs text-[#9c4962] dark:text-white/60">125k posts</p>
+                                        </div>
+                                        <div onClick={() => setSearchTerm('webdev')}>
+                                            <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#webdev</p>
+                                            <p className="text-xs text-[#9c4962] dark:text-white/60">98k posts</p>
+                                        </div>
+                                        <div onClick={() => setSearchTerm('digitalart')}>
+                                            <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#digitalart</p>
+                                            <p className="text-xs text-[#9c4962] dark:text-white/60">82k posts</p>
+                                        </div>
+                                        <div onClick={() => setSearchTerm('inspiration')}>
+                                            <p className="font-medium text-sm text-primary hover:underline cursor-pointer">#inspiration</p>
+                                            <p className="text-xs text-[#9c4962] dark:text-white/60">76k posts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
                         </div>
-                </div>
-                );
+                    </div>
+                </main>
+            </div>
+        </div>
+    );
 }

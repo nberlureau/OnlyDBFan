@@ -2,7 +2,7 @@ import React from 'react';
 import { useData } from '../context/DataContext';
 
 export default function Notifications() {
-    const { notifications, markNotificationRead, toggleFollow, users } = useData();
+    const { notifications, markNotificationRead, markAllNotificationsRead, toggleFollow, users } = useData();
     const [filter, setFilter] = React.useState('all');
 
     const filteredNotifications = notifications.filter(n => {
@@ -19,9 +19,7 @@ export default function Notifications() {
     }, {});
 
     const handleMarkAllRead = () => {
-        notifications.forEach(n => {
-            if (!n.read) markNotificationRead(n.id);
-        });
+        markAllNotificationsRead();
     };
 
     const handleAction = (note) => {

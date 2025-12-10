@@ -1,4 +1,4 @@
-```javascript
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useData } from '../context/DataContext';
 
@@ -10,7 +10,7 @@ export default function Messages() {
     const messagesEndRef = useRef(null);
 
     // Filter conversations
-    const filteredConversations = conversations.filter(c => 
+    const filteredConversations = conversations.filter(c =>
         c.user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -33,7 +33,7 @@ export default function Messages() {
     const handleSendMessage = (e) => {
         e.preventDefault();
         if (!messageText.trim()) return;
-        
+
         sendMessage(activeConversation.id, messageText);
         setMessageText('');
     };
@@ -51,19 +51,19 @@ export default function Messages() {
             <div className="w-full md:w-1/3 border-r border-gray-200 dark:border-white/10 flex flex-col bg-white dark:bg-black">
                 <div className="p-4 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
                     <h2 className="font-bold text-xl text-gray-900 dark:text-white">Messages</h2>
-                    <button 
+                    <button
                         onClick={handleNewConversation}
                         className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                         <span className="material-symbols-outlined text-gray-900 dark:text-white">edit_square</span>
                     </button>
                 </div>
-                
+
                 <div className="p-4">
                     <div className="relative">
                         <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
-                        <input 
-                            type="text" 
-                            placeholder="Rechercher..." 
+                        <input
+                            type="text"
+                            placeholder="Rechercher..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="w-full bg-gray-100 dark:bg-white/5 border-none rounded-full py-2 pl-9 pr-4 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-500 focus:ring-1 focus:ring-primary-home/50"
@@ -71,27 +71,23 @@ export default function Messages() {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto">
-                                    style={{ backgroundImage: `url("${activeConversation.user.avatar}")` }}>
-                                </div>
-                            )}
-
-                            <div className={`flex flex - col gap - 1 ${ msg.sender === 'me' ? 'items-end' : '' } `}>
-                                <div className={`p - 3 rounded - 2xl shadow - md ${
-    msg.sender === 'me'
-    ? 'bg-primary text-white rounded-br-none'
-    : 'bg-white dark:bg-[#151a30] text-gray-900 dark:text-white/90 rounded-bl-none border border-gray-200 dark:border-white/5 shadow-sm'
-} `}>
-                                    <p>{msg.text}</p>
-                                </div>
-                                <div className={`flex items - center gap - 1 ${ msg.sender === 'me' ? 'mr-2' : 'ml-2' } `}>
-                                    <span className="text-xs text-gray-500 dark:text-white/40">{msg.time}</span>
-                                    {msg.sender === 'me' && <span className="material-symbols-outlined text-xs text-primary">done_all</span>}
-                                </div>
+                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                    {activeConversation?.messages?.map((msg) => (
+                        <div key={msg.id} className={`flex flex - col gap - 1 ${msg.sender === 'me' ? 'items-end' : 'items-start'} `}>
+                            <div className={`p - 3 rounded - 2xl shadow - md max - w - [70 %] ${msg.sender === 'me'
+                                ? 'bg-primary text-white rounded-br-none'
+                                : 'bg-white dark:bg-[#151a30] text-gray-900 dark:text-white/90 rounded-bl-none border border-gray-200 dark:border-white/5 shadow-sm'
+                                } `}>
+                                <p>{msg.text}</p>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <span className="text-xs text-gray-500 dark:text-white/40">{msg.time}</span>
+                                {msg.sender === 'me' && <span className="material-symbols-outlined text-xs text-primary">done_all</span>}
                             </div>
                         </div>
                     ))}
                 </div>
+
 
                 {/* Input Area */}
                 <div className="p-4 bg-white dark:bg-[#050816] border-t border-gray-200 dark:border-white/10">
@@ -166,6 +162,6 @@ export default function Messages() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
